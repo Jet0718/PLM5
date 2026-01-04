@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<odoo>
+
+    <record id="partclass_model_action" model="ir.actions.act_window">
+        <field name="name">物料分類內容記錄</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">part.class</field>
+        <field name="view_mode">list,form</field>
+    </record>
+    <record id="partclass_view_list" model="ir.ui.view">
+        <field name="name">part.class.list</field>
+        <field name="model">part.class</field>
+        <field name="arch" type="xml">
+            <list string="物料分類內容記錄">
+                <field name="classification" string="分類" optional="show"/>
+                <field name="name" string="名稱" optional="show"/>
+                <field name="list_id" string="清單選項" optional="show"/>
+                <field name="description" string="描述" optional="show"/>
+                <field name="part_id" string="關聯物料" optional="show"/>
+            </list>
+        </field>
+    </record> 
+    <record id="partclass_view_form" model="ir.ui.view">
+        <field name="name">part.class.form</field>
+        <field name="model">part.class</field>
+        <field name="arch" type="xml">
+            <form string="物料分類內容記錄">
+                <sheet>    
+                    <group>
+                        <group>
+                            <field name="classification"  string="分類"/>
+                            <field name="name"  string="名稱"/>
+                            <field name="list_id"  string="清單選項"/>
+                            <field name="description"  string="描述"/>
+                            <field name="part_id" string="關聯物料"/>
+                        </group>                  
+                    </group>
+                </sheet>
+                <!-- <div class="oe_chatter">
+                    <field name="message_follower_ids" groups="base.group_user"/>
+                    <field name="activity_ids" widget="mail.activity"/>
+                    <field name="message_ids" widget="mail.thread"/>
+                </div> -->
+                <chatter reload_on_post="True"/>
+            </form>
+        </field>
+    </record>
+    <record id="partclass_view_search" model="ir.ui.view">
+        <field name="name">part.class.search</field>
+        <field name="model">part.class</field>
+        <field name="arch" type="xml">
+            <search string="物料分類內容記錄">
+                <field name="classification"  string="分類"/>
+                <field name="name"  string="名稱"/>
+                <field name="list_id"  string="清單選項"/>
+                <field name="description"  string="描述"/>
+                <field name="part_id" string="關聯物料"/>
+            </search>
+        </field>
+    </record>
+</odoo>

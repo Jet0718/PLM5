@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<odoo>
+
+    <record id="errorcode_model_action" model="ir.actions.act_window">
+        <field name="name">問題編碼</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">errorcode</field>
+        <field name="view_mode">list,form</field>
+    </record>
+    <record id="errorcode_view_list" model="ir.ui.view">
+        <field name="name">errorcode.list</field>
+        <field name="model">errorcode</field>
+        <field name="arch" type="xml">
+            <list string="問題編碼">
+                <field name="error_code"  string="錯誤代碼代號" optional="show"/>
+                <field name="error_name"  string="錯誤代碼名稱" optional="show"/>
+            </list>
+        </field>
+    </record> 
+    <record id="errorcode_view_form" model="ir.ui.view">
+        <field name="name">errorcode.form</field>
+        <field name="model">errorcode</field>
+        <field name="arch" type="xml">
+            <form string="問題編碼">
+                <sheet>    
+                    <group>
+                        <group>
+                            <field name="error_code"  string="錯誤代碼代號"/>
+                            <field name="error_name"  string="錯誤代碼名稱"/>"
+                            <!-- <field name="display_name"  string="KN" invisible="False"/>" -->
+                        </group>                  
+                    </group>
+                </sheet>
+                <chatter reload_on_post="True"/>
+            </form>
+        </field>
+    </record>
+    <record id="errorcode_view_search" model="ir.ui.view">
+        <field name="name">errorcode.search</field>
+        <field name="model">errorcode</field>
+        <field name="arch" type="xml">
+            <search string="問題編碼">
+                <field name="error_code"  string="錯誤代碼代號"/>
+                <field name="error_name"  string="錯誤代碼名稱"/>                 
+            </search>
+        </field>
+    </record>
+</odoo>

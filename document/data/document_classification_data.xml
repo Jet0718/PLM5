@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data noupdate="1">
+    <!-- 一級分類 -->
+    <record id="classification_product" model="document.classification">
+      <field name="name">Product</field>
+    </record>
+
+    <record id="classification_risk" model="document.classification">
+      <field name="name">Risk Management</field>
+    </record>
+
+    <record id="classification_general" model="document.classification">
+      <field name="name">General</field>
+    </record>
+
+    <record id="classification_safety" model="document.classification">
+      <field name="name">safety verification</field>
+    </record>
+
+    <record id="classification_ppap" model="document.classification">
+      <field name="name">PPAP</field>
+    </record>
+
+    <record id="classification_msa" model="document.classification">
+      <field name="name">MSA(量測系統分析)</field>
+    </record>
+
+    <record id="classification_spc" model="document.classification">
+      <field name="name">SPC(統計制程管制)</field>
+    </record>
+
+    <record id="classification_iso" model="document.classification">
+      <field name="name">ISO</field>
+    </record>
+
+    <record id="classification_software" model="document.classification">
+      <field name="name">Software</field>
+    </record>
+
+    <!-- Product子分類 -->
+    <record id="classification_product_feasibility" model="document.classification">
+      <field name="name">可行性評估表</field>
+      <field name="parent_id" ref="classification_product" />
+    </record>
+
+    <record id="classification_product_custom_spec" model="document.classification">
+      <field name="name">客戶委制設計系統/項目 規格表</field>
+      <field name="parent_id" ref="classification_product" />
+    </record>
+
+    <record id="classification_product_new_proposal" model="document.classification">
+      <field name="name">新産品研發提案書</field>
+      <field name="parent_id" ref="classification_product" />
+    </record>
+
+    <record id="classification_product_electrical_spec" model="document.classification">
+      <field name="name">電氣規格書</field>
+      <field name="parent_id" ref="classification_product" />
+    </record>
+
+    <record id="classification_product_finished_spec" model="document.classification">
+      <field name="name">成品規格書</field>
+      <field name="parent_id" ref="classification_product" />
+    </record>
+
+    <record id="classification_product_inspection_standard" model="document.classification">
+      <field name="name">檢驗標准作業書</field>
+      <field name="parent_id" ref="classification_product" />
+    </record>
+
+    <record id="classification_product_design_confirmation" model="document.classification">
+      <field name="name">設計制造確認計劃及報告</field>
+      <field name="parent_id" ref="classification_product" />
+    </record>
+
+    <record id="classification_product_bom" model="document.classification">
+      <field name="name">物料清單</field>
+      <field name="parent_id" ref="classification_product" />
+    </record>
+
+    <record id="classification_product_reliability_test" model="document.classification">
+      <field name="name">可靠性試驗報告</field>
+      <field name="parent_id" ref="classification_product" />
+    </record>
+
+    <record id="classification_product_isir" model="document.classification">
+      <field name="name">ISIR初期樣品測試報告</field>
+      <field name="parent_id" ref="classification_product" />
+    </record>
+
+    <record id="classification_product_sample_test" model="document.classification">
+      <field name="name">Sample test report</field>
+      <field name="parent_id" ref="classification_product" />
+    </record>
+
+    <record id="classification_product_inspection_report" model="document.classification">
+      <field name="name">Inspection Report</field>
+      <field name="parent_id" ref="classification_product" />
+    </record>
+
+    <record id="classification_product_review_record" model="document.classification">
+      <field name="name">産品開發作業審核記錄表</field>
+      <field name="parent_id" ref="classification_product" />
+    </record>
+
+    <record id="classification_product_dmr" model="document.classification">
+      <field name="name">DMR目錄</field>
+      <field name="parent_id" ref="classification_product" />
+    </record>
+
+    <record id="classification_product_dhr" model="document.classification">
+      <field name="name">DHR目錄</field>
+      <field name="parent_id" ref="classification_product" />
+    </record>
+
+    <record id="classification_product_tech_transfer" model="document.classification">
+      <field name="name">技術移轉清單</field>
+      <field name="parent_id" ref="classification_product" />
+    </record>
+
+    <record id="classification_product_work_instruction" model="document.classification">
+      <field name="name">生産作業標准指導書</field>
+      <field name="parent_id" ref="classification_product" />
+    </record>
+
+    <record id="classification_product_packaging_std" model="document.classification">
+      <field name="name">包裝&amp;標示作業標准指導書</field>
+      <field name="parent_id" ref="classification_product" />
+    </record>
+
+    <!-- Risk Management子分類 -->
+    <record id="classification_risk_file" model="document.classification">
+      <field name="name">Risk Management File</field>
+      <field name="parent_id" ref="classification_risk" />
+    </record>
+
+    <!-- General子分類 -->
+    <record id="classification_general_meeting" model="document.classification">
+      <field name="name">會議記錄</field>
+      <field name="parent_id" ref="classification_general" />
+    </record>
+
+    <!-- safety verification子分類 -->
+    <record id="classification_safety_certification" model="document.classification">
+      <field name="name">安規認證文件</field>
+      <field name="parent_id" ref="classification_safety" />
+    </record>
+
+    <record id="classification_safety_environmental" model="document.classification">
+      <field name="name">環保認證文件</field>
+      <field name="parent_id" ref="classification_safety" />
+    </record>
+
+    <!-- PPAP子分類 -->
+    <record id="classification_ppap_design" model="document.classification">
+      <field name="name">設計紀錄</field>
+      <field name="parent_id" ref="classification_ppap" />
+    </record>
+
+    <record id="classification_ppap_ecn" model="document.classification">
+      <field name="name">核淮的工程變更文件</field>
+      <field name="parent_id" ref="classification_ppap" />
+    </record>
+
+    <record id="classification_ppap_approval" model="document.classification">
+      <field name="name">顧客工程批淮</field>
+      <field name="parent_id" ref="classification_ppap" />
+    </record>
+
+    <record id="classification_ppap_flowchart" model="document.classification">
+      <field name="name">過程流程圖</field>
+      <field name="parent_id" ref="classification_ppap" />
+    </record>
+
+    <record id="classification_ppap_measurement" model="document.classification">
+      <field name="name">量測系絊分析研究</field>
+      <field name="parent_id" ref="classification_ppap" />
+    </record>
+
+    <record id="classification_ppap_dimension" model="document.classification">
+      <field name="name">全尺吋量測結果</field>
+      <field name="parent_id" ref="classification_ppap" />
+    </record>
+
+    <record id="classification_ppap_material_test" model="document.classification">
+      <field name="name">材料/性能試驗結果的記錄</field>
+      <field name="parent_id" ref="classification_ppap" />
+    </record>
+
+    <record id="classification_ppap_process_study" model="document.classification">
+      <field name="name">初期制程研究</field>
+      <field name="parent_id" ref="classification_ppap" />
+    </record>
+
+    <record id="classification_ppap_lab_doc" model="document.classification">
+      <field name="name">合格實驗室的文件要求</field>
+      <field name="parent_id" ref="classification_ppap" />
+    </record>
+
+    <record id="classification_ppap_aar" model="document.classification">
+      <field name="name">外觀批淮報告(AAR)</field>
+      <field name="parent_id" ref="classification_ppap" />
+    </record>
+
+    <record id="classification_ppap_sample" model="document.classification">
+      <field name="name">生産件樣品</field>
+      <field name="parent_id" ref="classification_ppap" />
+    </record>
+
+    <record id="classification_ppap_std_sample" model="document.classification">
+      <field name="name">標准樣品</field>
+      <field name="parent_id" ref="classification_ppap" />
+    </record>
+
+    <record id="classification_ppap_gauge" model="document.classification">
+      <field name="name">檢具</field>
+      <field name="parent_id" ref="classification_ppap" />
+    </record>
+
+    <record id="classification_ppap_special_req" model="document.classification">
+      <field name="name">符合客戶特殊要求的記錄</field>
+      <field name="parent_id" ref="classification_ppap" />
+    </record>
+
+    <record id="classification_ppap_psw" model="document.classification">
+      <field name="name">零件提交保證書(PSW)</field>
+      <field name="parent_id" ref="classification_ppap" />
+    </record>
+
+    <!-- MSA子分類 -->
+    <record id="classification_msa_grr" model="document.classification">
+      <field name="name">GR&amp;R</field>
+      <field name="parent_id" ref="classification_msa" />
+    </record>
+
+    <record id="classification_msa_kappa" model="document.classification">
+      <field name="name">Kappa風險分析</field>
+      <field name="parent_id" ref="classification_msa" />
+    </record>
+
+    <!-- SPC子分類 -->
+    <record id="classification_spc_xr" model="document.classification">
+      <field name="name">X-R管制圖</field>
+      <field name="parent_id" ref="classification_spc" />
+    </record>
+
+    <record id="classification_spc_histogram" model="document.classification">
+      <field name="name">直方圖</field>
+      <field name="parent_id" ref="classification_spc" />
+    </record>
+
+    <record id="classification_spc_cpk" model="document.classification">
+      <field name="name">制程能力分析報告(Cpk)</field>
+      <field name="parent_id" ref="classification_spc" />
+    </record>
+
+    <!-- ISO子分類 -->
+    <record id="classification_iso_quality" model="document.classification">
+      <field name="name">品保手冊</field>
+      <field name="parent_id" ref="classification_iso" />
+    </record>
+
+    <record id="classification_iso_procedure" model="document.classification">
+      <field name="name">程序書</field>
+      <field name="parent_id" ref="classification_iso" />
+    </record>
+
+    <record id="classification_iso_specification" model="document.classification">
+      <field name="name">規範，辨法</field>
+      <field name="parent_id" ref="classification_iso" />
+    </record>
+
+    <!-- Softwave子分類 -->
+    <record id="classification_software_firmware" model="document.classification">
+      <field name="name">Firmware</field>
+      <field name="parent_id" ref="classification_software" />
+    </record>
+
+    <record id="classification_software_diagnostic" model="document.classification">
+      <field name="name">Diagnostic</field>
+      <field name="parent_id" ref="classification_software" />
+    </record>
+
+    <record id="classification_software_code" model="document.classification">
+      <field name="name">Code</field>
+      <field name="parent_id" ref="classification_software" />
+    </record>
+  </data>
+</odoo>

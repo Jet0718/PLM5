@@ -1,0 +1,129 @@
+<odoo>
+  <record id="cad_model_action" model="ir.actions.act_window">
+    <field name="name">工程圖</field>
+    <field name="res_model">cad</field>
+    <field name="view_mode">list,form,kanban</field>
+  </record>
+  <!-- 列表視圖：顯示關鍵字段，支持排序和篩選 -->
+  <record id="cad_list" model="ir.ui.view">
+    <field name="name">cad.list</field>
+    <field name="model">cad</field>
+    <field name="arch" type="xml">
+      <list string="工程圖">
+        <field name="item_number" />
+        <field name="classification_id" />
+        <field name="name" />
+        <field name="description" />
+        <field name="state" />
+        <field name="owner_id" />
+      </list>
+    </field>
+  </record>
+  <!-- 表單視圖：結構化布局，支持數據錄入與詳情展示 -->
+  <record id="cad_form" model="ir.ui.view">
+    <field name="name">cad.form</field>
+    <field name="model">cad</field>
+    <field name="arch" type="xml">
+      <form string="文件管理">
+        <header>
+          <field name="state" widget="statusbar" />
+        </header>
+        <sheet>
+          <div class="oe_button_box" name="button_box">             
+            <button name="express_dco_model_action" string="DCO" class="oe_stat_button" icon="fa-archive" type="object" border="1">
+                <field name="dco_count"  widget="statinfo" string=" DCO" />
+            </button>
+          </div>
+          <group col="3">
+            <group col="3">
+              <field name="item_number" />
+              <field name="name" />
+              <field name="classification_id"  options="{'no_create': True, 'no_open': True}" />
+              <field name="description" />
+              <field name="in_development" />
+              <field name="is_project" />
+            </group>
+            <group col="3">
+              <field name="state"  options="{'no_create': True, 'no_open': True}" />
+              <field name="version" />
+              <field name="editor_id"  options="{'no_create': True, 'no_open': True}" />
+              <field name="owner_id" />
+              <field name="manager_id" />
+              <field name="is_template" />
+              <field name="is_standard" />
+              <field name="team_id" />
+              <field name="effective_date" />
+              <field name="release_date" />
+            </group>
+            <group col="3">
+              <field name="thumbnail" widget="image" options="{'preview_image': 'thumbnail'}" />
+              <field name="source_file" widget="many2one_binary" />
+              <field name="preview_file" widget="many2one_binary" />
+              <field name="release_file" widget="many2one_binary" />
+            </group>
+          </group>
+          <notebook>
+            <page string="子階工程圖">
+              <field name="child_ids" options="{'no_create': True}" />
+            </page>
+            <page string="父階工程圖">
+              <field name="parent_id" readonly="1">
+                <list>
+                  <field name="item_number" readonly="1" />
+                  <field name="name" readonly="1" />
+                  <field name="version" readonly="1" />
+                  <field name="owner_id" readonly="1" />
+                  <field name="state" readonly="1" />
+                </list>
+              </field>
+            </page>
+            <page string="附件">
+              <group>
+                <field name="attachment_ids" widget="many2many_binary" />
+              </group>
+            </page>
+          </notebook>
+        </sheet>
+        <chatter reload_on_post="True"/>
+      </form>
+    </field>
+  </record>
+  <!-- 看板視圖 -->
+  <record id="cad_kanban" model="ir.ui.view">
+    <field name="name">cad.kanban</field>
+    <field name="model">cad</field>
+    <field name="arch" type="xml">
+      <kanban default_group_by="state" string="工程圖" records_draggable="1">
+        <field name="item_number" />
+        <field name="name" />
+        <field name="classification_id" />
+        <field name="state" />
+        <field name="owner_id" />
+        <templates>
+          <t t-name="card">
+            <div>
+              <div class="oe_kanban_global_click"></div>
+              <div class="oe_kanban_box oe_kanban_global_click">
+                <div class="oe_kanban_box_header">
+                  <div class="oe_kanban_box_title">
+                    <field name="item_number" />
+                    <field name="name" />
+                  </div>
+                </div>
+                <div class="oe_kanban_box_content"></div>
+              </div>
+              <div class="oe_kanban_footer">
+                <div class="oe_kanban_footer_left">
+                  <field name="state" widget="statusbar" options="{'clickable': '1'}" />
+                </div>
+                <div class="oe_kanban_footer_right">
+                  <field name="owner_id" />
+                </div>
+              </div>
+            </div>
+          </t>
+        </templates>
+      </kanban>
+    </field>
+  </record>
+</odoo>

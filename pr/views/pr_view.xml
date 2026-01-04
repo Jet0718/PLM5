@@ -1,0 +1,182 @@
+<?xml version="1.0"?>
+<odoo>
+
+    <record id="pr_model_action" model="ir.actions.act_window">
+        <field name="name">PR問題單</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">pr</field>
+        <field name="view_mode">list,kanban,form</field>
+        <!-- <field name="view_id" ref="view_pr_kanban"/> -->
+    </record>
+    <record id="pr_view_list" model="ir.ui.view">
+        <field name="name">pr.list</field>
+        <field name="model">pr</field>
+        <field name="arch" type="xml">
+            <list string="PR問題單">
+                <field name="item_number" string="問題單編號" optional="show" width="100px"/>
+                <field name="title"  string="標題" optional="show"/>
+                <field name="classification"  string="問題來源" optional="show"/>
+                <field name="priority"  string="優先度" optional="show" widget="priority"/>
+                <field name="create_uid"  string="創建者" optional="show"/>
+                <field name="create_date"  string="創建日期" optional="show"/> 
+                <field name="owner_id"  string="權責單位擔當/資材" optional="show"/>
+                <field name="manager_id"  string="權責單位主管" optional="show"/>  
+                <field name="quantity"  string="數量" optional="hide"/>
+                <field name="team_id"  string="團隊" optional="hide"/>
+                <field name="reported_by"  string="問題回報人" optional="show"/>
+                <field name="description"  string="問題描述" optional="show"/>  
+                <field name="environment"  string="環境說明" optional="hide"/>
+                <field name="events"  string="重現操作順序" optional="hide"/>  
+                <field name="phase_caused"  string="問題發生階段" optional="hide"/>  
+                <field name="stage_id"  string="狀態階段" optional="show"/>
+                <field name="customer_id"  string="受影響客戶" optional="show"/>  
+                <field name="customer_contact"  string="客戶/供應商 聯絡人" optional="show"/>  
+                <field name="response_req"  string="回應" optional="hide"/>
+                <field name="bcs_external_number"  string="外部單號" optional="hide"/>  
+                <field name="category_of_root_cause"  string="真因類別" optional="hide"/>  
+                <field name="responsibility_for_root_cause"  string="真因權責單位" optional="hide"/>
+                <field name="pr_owner"  string="權責人員" optional="hide"/>
+                <field name="supplier_id"  string="來料供應商" optional="hide"/>  
+                <field name="errorcode_id"  string="問題編碼" optional="show" widget="many2many_tags"/>  
+                <field name="request_source"  string="要求來源" optional="hide"/>  
+                <field name="d3"  string="(D3)實行及驗證暫時防堵措施" optional="hide"/>  
+                <field name="d4"  string="(D4)問題發生原因" optional="hide"/>  
+                <field name="d5"  string="(D5)驗證改善對策" optional="hide"/>  
+                <field name="d6"  string="(D6)執行永久對策" optional="hide"/>  
+                <field name="d7"  string="(D7)預防再發事件" optional="hide"/>  
+                <field name="other"  string="其他描述" optional="hide"/> 
+                <field name="defectquantity"  string="不良數" optional="hide"/>  
+                <field name="bussiness_id"  string="業務擔當" optional="hide"/> 
+                <field name="image_field" widget="image" options="{'size': [100, 100]}" optional="show"/>
+                
+            </list>
+        </field>
+    </record> 
+    <record id="pr_view_form" model="ir.ui.view">
+        <field name="name">"pr.form</field>
+        <field name="model">pr</field>
+        <field name="arch" type="xml">
+            <form string="PR問題單">
+                <header>
+                    <!-- #增加狀態按鈕                   -->
+                    <button name="action_set_inreview" string="審核" type="object" invisible="1"/>
+                    <button name="action_set_released" string="發行" type="object" invisible="1"/> 
+                    <!-- #將狀態改成管道狀態列 -->
+                    <field name="stage_id" widget="statusbar" statusbar_visible="New,In Review,Released"/>
+                </header>
+                <sheet>    
+                    <group>
+                        <group>
+                            <field name="item_number" string="問題單編號" width="100px"/>
+                            <field name="title" string="標題"/>
+                            <field name="classification" string="問題來源"/>
+                            <field name="priority" widget="priority"/>
+                            <field name="create_uid" string="創建者"/>
+                            <field name="create_date" string="創建日期"/> 
+                            <field name="owner_id" string="權責單位擔當/資材"/>
+                            <field name="manager_id" string="權責單位主管"/>  
+                            <field name="quantity" string="數量"/>
+                            <field name="team_id" string="團隊"/> 
+                            <field name="reported_by" string="問題回報人"/>
+                            <field name="phase_caused" string="問題發生階段"/>                            
+                            <field name="errorcode_id" string="問題編碼" widget="many2many_tags"/>
+                            <field name="description" string="問題描述"/>  
+                            <field name="environment" string="環境說明"/>
+                            <field name="events" string="重現操作順序"/>  
+                        </group>
+                        <group>
+                            <!-- <field name="image_field" widget="image" class="oe_avatar" options="{'size': [100, 100]}" string=""/>                            -->
+                            <!-- <field name="image_field" widget="image" options="{'preview_image': 'thumbnail','size': [100, 100]}"/>                             --> -->
+                            <field name="image_field" widget="image" options="{'size': [200, 200]}"/>                              
+                            <field name="customer_id" string="受影響客戶"/>  
+                            <field name="customer_contact" string="客戶/供應商 聯絡人"/>  
+                            <field name="response_req" string="回應"/>
+                            <field name="bcs_external_number" string="外部單號"/>  
+                            <field name="category_of_root_cause" string="真因類別"/>  
+                            <field name="responsibility_for_root_cause" string="真因權責單位"/>
+                            <field name="pr_owner"  string="權責人員"/>
+                            <field name="supplier_id" string="來料供應商"/>   
+                            <field name="request_source" string="要求來源"/>
+                        </group>
+                    </group> 
+                    <notebook>
+                        <page string="關聯檔案">
+                            <!-- 上傳多個檔案顯示寫法 -->
+                            <group>
+                                <field name="refe_file" widget="many2many_binary" nolabel="1" colspan="2" context="{'disable_preview': 1, 'form_view_ref': 'project_inherit.view_attachfileprj_form_inherit'}"/>
+                            </group>
+                        </page>
+                        <page string="預防矯正措施">  
+                            <group>
+                                <field name="d3" string="(D3)實行及驗證暫時防堵措施"/>  
+                                <field name="d4" string="(D4)問題發生原因"/>  
+                                <field name="d5" string="(D5)驗證改善對策"/>  
+                                <field name="d6" string="(D6)執行永久對策"/>  
+                                <field name="d7" string="(D7)預防再發事件"/>  
+                                <field name="other" string="其他描述"/> 
+                                <field name="defectquantity" string="不良數"/>  
+                                <field name="bussiness_id" string="業務擔當"/>                              
+                            </group>                          
+                        </page>    
+                        <page string="追蹤紀錄">                                
+                                <field name="tracking_ids"/>                                                     
+                        </page> 
+                        <page string="關聯項目">
+                            <field name="project_id" string="關聯項目"/> 
+                        </page>  
+                        <page string="關聯文件">
+                            <field name="document_id" string="關聯文件"/> 
+                        </page>                
+                        <page string="關聯工程圖">
+                            <field name="cad_id" string="關聯工程圖"/> 
+                        </page>              
+                        <page string="關聯物料">
+                            <field name="part_id" string="關聯物料"/> 
+                        </page>                                             
+                    </notebook>
+                </sheet>
+                <chatter reload_on_post="True"/>
+            </form>
+        </field>
+    </record>
+    <record id="pr_view_search" model="ir.ui.view">
+        <field name="name">pr.search</field>
+        <field name="model">pr</field>
+        <field name="arch" type="xml">
+            <search string="PR 問題單">                                
+                <field name="item_number" string="問題單編號" width="100px"/>
+                <field name="title" string="標題"/>
+                <field name="classification" string="問題來源"/>
+                <field name="priority" string="優先度"/>
+            </search>
+        </field>
+    </record>
+    <record id="view_pr_kanban" model="ir.ui.view">
+        <field name="name">pr.kanban</field>
+        <field name="type">kanban</field>
+        <field name="model">pr</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="stage_id">
+                <field name="item_number"/>
+                <field name="title"/>
+                <field name="priority" widget="priority"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_global_click">
+                            <div class="oe_kanban_details">
+                                <strong><field name="item_number"/></strong>
+                                <div>標題: <field name="title"/></div>
+                                <div>優先級: <field name="priority" widget="priority"/></div>
+                                <div>問題編碼: <field name="errorcode_id" string="問題編碼" widget="many2many_tags"/></div>
+                                <div>受影響客戶: <field name="customer_id" string="受影響客戶" widget="many2one_tags"/></div>
+                                <div><field name="image_field" widget="image" class="oe_avatar" options="{'size': [100, 100]}" string=""/></div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+</odoo>
+
+

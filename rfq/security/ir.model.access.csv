@@ -1,0 +1,11 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+rfq.access_rfq_property,access_rfq_property,rfq.model_rfq_property,base.group_user,1,1,1,1
+rfq.access_custom_demand,access_custom_demand,rfq.model_custom_demand,base.group_user,1,1,1,1
+rfq.access_quotation_additional_document,access_quotation_additional_document,rfq.model_quotation_additional_document,base.group_user,1,1,1,1
+rfq.access_product_characteristic,access_product_characteristic,rfq.model_product_characteristic,base.group_user,1,1,1,1
+rfq.access_competitor_record,access_competitor_record,rfq.model_competitor_record,base.group_user,1,1,1,1
+rfq.access_rfq_flow,access_rfq_flow,rfq.model_rfq_flow,base.group_user,1,1,1,1
+rfq.access_rfq_flow_rfq_property_rel,access_rfq_flow_rfq_property_rel,rfq.model_rfq_flow_rfq_property_rel,base.group_user,1,1,1,1
+rfq.access_rfq_property_state,access_rfq_property_state,rfq.model_rfq_property_state,base.group_user,1,1,1,1
+rfq.access_rfq_flow_state,access_rfq_flow_state,rfq.model_rfq_flow_state,base.group_user,1,1,1,1
+

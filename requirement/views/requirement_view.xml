@@ -1,0 +1,125 @@
+<?xml version="1.0"?>
+<odoo>
+
+    <record id="requirement_model_action" model="ir.actions.act_window">
+        <field name="name">需求評估</field>
+        <field name="res_model">requirement</field>
+        <field name="view_mode">list,form</field>
+    </record>
+    <record id="requirement_project_action" model="ir.actions.act_window">
+        <field name="name">Rel Projects</field>
+        <field name="res_model">project.project</field>
+        <field name="view_mode">list,form</field>
+        <field name="domain">[('project_ids','=', active_id)]</field>
+    </record>
+    <record id="requirement_view_list" model="ir.ui.view">
+        <field name="name">requirement.list</field>
+        <field name="model">requirement</field>
+        <field name="arch" type="xml">
+            <list string="需求評估">
+                <field name="item_number"  string="編號"/>
+                <field name="name"  string="需求名称"/>
+                <field name="partner_id" string="客戶"/>
+                <field name="contract_name" string="聯絡人"/>
+                <field name="owner_id" string="負責人"/>
+                <field name="state" string="状态"/>
+                <field name="sample" string="是否打樣"/>
+                <field name="quotation" string="是否報價"/>
+                <field name="speical_req" string="特殊要求"/>
+                <field name="ref_product" string="參考產品"/>
+                <field name="prd_type_id" string="需求產品類型"/>
+                <field name="prd_purpose_id" string="產品用途"/>                    
+            </list>
+        </field>
+    </record>
+    <record id="requirement_view_form" model="ir.ui.view">
+        <field name="name">requirement.form</field>
+        <field name="model">requirement</field>
+        <field name="arch" type="xml">
+            <form string="需求評估">
+                <header>
+                    <!-- #增加状态按钮                   -->
+                    <button name="action_set_Evaluting" string="评价" type="object"/>
+                    <button name="action_set_Approved" string="核准" type="object"/>
+                    <button name="action_set_Abort" string="中止" type="object"/>
+                    <!-- #将状态改成管道状态列 -->
+                    <field name="state" widget="statusbar" statusbar_visible="Draft,Evaluting,Approved,Abort"/>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="require_project_filter_action" string="Project" class="oe_stat_button" icon="fa-bars" type="object" border="1">
+                            <field name="project_count" widget="statinfo" string="Projects" />
+                        </button>
+                        <button name="require_leads_filter_action" string="lead" class="oe_stat_button" icon="fa-coffee" type="object" border="1">
+                            <field name="lead_count" widget="statinfo" string="Pipelines" />
+                        </button>
+                    </div>
+    
+                    <group>
+                        <group>
+                            <group>
+                                <field name="item_number"  string="編號"/>
+                                <field name="name"  string="需求名称"/>
+                                <field name="partner_id" string="客戶"/>
+                                <field name="contract_name" string="聯絡人"/>
+                                <field name="owner_id" string="負責人"/>
+                            </group>
+                            <group>                              
+                                <field name="ref_product" string="參考產品"/>
+                                <field name="prd_type_id" string="需求產品類型"/>
+                                <field name="prd_purpose_id" string="產品用途"/>
+                                <field name="speical_req" string="特殊要求"/>
+                            </group>
+                            <!-- <field name="state" string="状态"/>                -->
+                        </group>
+                        <group>
+                            <group>
+                                <group>
+                                    <field name="sample" string="是否打樣"/>
+                                </group>
+                                <group>
+                                    <field name="quotation" string="是否報價"/>
+                                </group>
+                            </group>
+                            
+                        </group>
+                        
+                    </group>
+                    <notebook>
+                        <page string="附件">
+                             <group>
+                                <!-- 上传单个档案显示写法 -->
+                                <!-- <field name="binary_field" string="档案" filename="binary_file_name"/>                            
+                                <field name="binary_file_name" string="档案名称" invisible="1"/> -->                               
+                            </group>
+                            <!-- 上传多个档案显示写法 -->
+                            <field name="binary_fields" widget="many2many_binary" context="{'disable_preview': 1, 'form_view_ref': 'project_inherit.view_attachfileprj_form_inherit'}"/>
+                        </page>
+                        <page string="規格要求">                            
+                            <field name="spec_ids"> 
+                                <list  editable="bottom"> 
+                                    <field name="spec_id" />
+                                    <field name="spec_name" />                                
+                                    <field name="reqstr" />
+                                </list>  
+                            </field>                            
+                        </page>
+                        
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+    <record id="requirement_view_search" model="ir.ui.view">
+        <field name="name">requirement.search</field>
+        <field name="model">requirement</field>
+        <field name="arch" type="xml">
+            <search string="需求評估搜寻">
+                <field name="item_number"  string="編號"/>
+                <field name="name"  string="需求名称"/>
+                <separator/>                    
+            </search>
+        </field>
+    </record>
+</odoo>

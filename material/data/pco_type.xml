@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data noupdate="1">
+		<record id="pcotype_01_demo" model="pco.type">
+			<field name="name">Product</field>
+		</record>
+		<record id="pcotype_02_demo" model="pco.type">
+			<field name="name">Bom</field>       
+		</record>   
+	</data>	
+</odoo>

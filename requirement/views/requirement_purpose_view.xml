@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<odoo>
+    <record id="requirement_purpose_action" model="ir.actions.act_window">
+        <field name="name">产品用途</field>        
+        <field name="res_model">requirement.purpose</field>
+        <field name="view_mode">list,form</field>
+    </record>
+    <record id="requirement_purpose_view_list" model="ir.ui.view">
+        <field name="name">requirement.purpose.list</field>
+        <field name="model">requirement.purpose</field>
+        <field name="arch" type="xml">
+            <list string="产品用途">
+                <field name="name" string="用途名称" />
+            </list>
+        </field>
+    </record>
+    <record id="requirement_purpose_view_form" model="ir.ui.view">
+        <field name="name">requirement.purpose.form"</field>
+        <field name="model">requirement.purpose</field>
+        <field name="arch" type="xml">
+            <form string="产品用途">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name" string="用途名称"/>
+                        </group>
+                    </group>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+    <record id="requirement_purpose_view_search" model="ir.ui.view">
+        <field name="name">requirement.purpose.search"</field>
+        <field name="model">requirement.purpose</field>
+        <field name="arch" type="xml">
+            <search string="产品用途搜寻">
+                <field name="name" string="用途名称"/>
+            </search>
+        </field>
+    </record>
+</odoo>

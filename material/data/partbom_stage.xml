@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="partbom_stage_new" model="partbom.stage">
+            <field name="name">New</field>
+            <field name="description">新建立</field>
+            <field name="sequence" eval="1"/>
+            <field name="folded" eval="False"/>
+        </record>
+        <record id="partbom_stage_inreview" model="partbom.stage">
+            <field name="name">In Review</field>
+            <field name="description">審核中</field>
+            <field name="sequence" eval="2"/>
+            <field name="folded" eval="False"/>
+        </record>
+        <record id="partbom_stage_released" model="partbom.stage">
+            <field name="name">Released</field>
+            <field name="description">結案</field>
+            <field name="sequence" eval="3"/>
+            <field name="folded" eval="True"/>
+        </record>
+        <record id="partbom_stage_onchange" model="partbom.stage">
+            <field name="name">On Change</field>
+            <field name="description">變更中</field>
+            <field name="sequence" eval="4"/>
+            <field name="folded" eval="False"/>
+        </record>
+        <record id="partbom_stage_supersede" model="partbom.stage">
+            <field name="name">Superseded</field>
+            <field name="description">作廢</field>
+            <field name="sequence" eval="5"/>
+            <field name="folded" eval="True"/>
+        </record>
+    </data>
+</odoo>

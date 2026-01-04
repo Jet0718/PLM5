@@ -1,0 +1,139 @@
+<odoo>
+  <record id="rfq_property_model_action" model="ir.actions.act_window">
+    <field name="name">RFQ報價</field>
+    <field name="res_model">rfq.property</field>
+    <field name="view_mode">list,form,kanban</field>
+  </record>
+  <!-- 列表視圖：顯示關鍵字段，支持排序和篩選 -->
+  <record id="rfq_property_list" model="ir.ui.view">
+    <field name="name">rfq.property.list</field>
+    <field name="model">rfq.property</field>
+    <field name="arch" type="xml">
+      <list string="RFQ報價列表">
+        <field name="item_number" string="報價編號" />  <!-- 唯壹標識 -->
+        <field name="customer" string="客戶" />        <!-- Many2one字段直接顯示關聯名稱 -->
+        <field name="quotation_date" string="報價日期" />  <!-- 日期字段自動格式化 -->
+        <field name="part_price" string="部品價格" />  <!-- 數值字段右對齊 -->
+        <field name="deal" string="是否成交" />        <!-- Selection字段顯示選項標簽 -->
+        <field name="receier" string="接案人員" />     <!-- 關聯用戶名稱 -->
+      </list>
+    </field>
+  </record>
+  <!-- 表單視圖：結構化布局，支持數據錄入與詳情展示 -->
+  <record id="rfq_property_form" model="ir.ui.view">
+    <field name="name">rfq.property.form</field>
+    <field name="model">rfq.property</field>
+    <field name="arch" type="xml">
+      <form string="RFQ報價詳情">
+        <header>
+          <field name="state" widget="statusbar" class="oe_statusbar_buttons" />
+        </header>
+        <sheet>
+          <h1>
+            <lalel>RFQ報價編號：</lalel>
+            <field name="item_number" required="1" />
+          </h1>
+          <!-- 基礎信息分組（左欄） -->
+          <group>
+            <group string="客戶相關" col="4">
+              <field name="customer" options="{'no_create': True, 'no_open': True}" />  <!-- 禁止直接創建客戶 -->
+              <field name="part_name" />
+              <field name="part_number" />
+              <field name="project_number" />
+            </group>
+            <!-- 時間與狀態分組（右欄） -->
+            <group string="報價信息" col="4">
+              <field name="quotation_date" />
+              <field name="receie_date" />
+              <field name="deal" widget="selection_badge"
+                options="{'horizontal': True, 'max_items': 4}" />  <!-- 單選按鈕更直觀 -->
+              <field name="receier" options="{'no_create': True}" />  <!-- 僅選擇現有用戶 -->
+            </group>
+            <group string="價格信息" col="4">
+              <field name="part_price" />  <!-- 保留兩位小數 -->
+              <field name="tooling_price" />
+              <field name="quantity" />
+              <field name="year_indication" />
+            </group>
+            <group string="時間節點" col="4">
+              <field name="ct01" widget="date" />  <!-- 日期選擇器 -->
+              <field name="ct02" widget="date" />
+              <field name="ct03" widget="date" />
+              <field name="ct04" widget="date" />
+            </group>
+            <group string="其他信息" col="2">
+              <field name="model" />
+              <field name="is_car_type" />
+              <field name="share_description" />
+            </group>
+            <group string="備注" col="2">
+              <field name="change_record" placeholder="請輸入變更曆史..." />
+              <field name="comprtitors" placeholder="請輸入競爭對手信息..." />
+              <field name="quotation_info" placeholder="請輸入報價信息..." />
+            </group>
+          </group>
+
+          <!-- 頁簽 -->
+          <notebook>
+            <page string="客戶需求">
+              <field name="customer_demand" />
+            </page>
+            <page string="RFQ附加文件">
+              <field name="quotation_attachment" />
+            </page>
+            <page string="産品特性">
+              <field name="product_characteristics" />
+            </page>
+            <page string="競爭記錄">
+              <field name="competitor_record" />
+            </page>
+          </notebook>
+          <!-- 底部溝通組件 -->
+          <chatter />
+        </sheet>
+      </form>
+    </field>
+  </record>
+  <!-- 看板視圖 -->
+  <record id="rfq_property_kanban" model="ir.ui.view">
+    <field name="name">rfq.property.kanban</field>
+    <field name="model">rfq.property</field>
+    <field name="arch" type="xml">
+      <kanban class="o_kanban_mobile">
+        <field name="item_number" string="報價編號" />
+        <field name="customer" string="客戶" />
+        <field name="quotation_date" string="報價日期" />
+        <field name="part_price" string="部品價格" />
+        <field name="deal" string="是否成交" />
+        <field name="receier" string="接案人員" />
+        <templates>
+          <t t-name="card">
+            <div class="o_kanban_details">
+              <strong>
+                <field name="item_number" />
+              </strong>
+              <hr />
+              <div class="o_kanban_description">
+                <div>
+                  <field name="customer" />
+                </div>
+                <div>
+                  <field name="quotation_date" />
+                </div>
+                <div class="oe_kanban_footer_left">
+                  <field name="state" widget="statusbar" options="{'clickable': '1'}" />
+                </div>
+                <div>
+                  <field name="part_price" />
+                </div>
+                <div>
+                  <field name="deal" />
+                </div>
+              </div>
+            </div>
+          </t>
+        </templates>
+      </kanban>
+    </field>
+  </record>
+</odoo>

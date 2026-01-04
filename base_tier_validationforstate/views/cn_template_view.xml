@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <record id="tier_definition_viewlistfomr" model="ir.ui.view">
+        <field name="name">cn.tempselect.form</field>
+        <field name="model">cn.tempselect</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <field name="cn_controlid" invisible="1"/>
+                    <field name="res_type" invisible="1"/>
+                    <field name="sequence" invisible="1"/>
+                    <field name="selected_records" widget="many2many_tags" 
+                           domain="[('model', '=', res_type),('sequence','&gt;',sequence)]"
+                    />
+
+                    <!-- 嵌入 Tree View -->
+                    <!-- <notebook >
+                        <page string="送審文件" >  -->
+                    <field name="selected_records"  readonly="1"  options="{'no_open':True,'no_create':True}">
+                        <!-- <list  editable="bottom" options="{'no_create':True}">    
+                            <button name="select_row" type="object" string="select" class="btn btn-link" />
+                            <field name="is_selected"   readonly="0"/>                 
+                            <field name="name" readonly="1"/>
+                            <field name="model"  readonly="1"/>
+                            <field name="reviewer_field_id"  readonly="1"/>                                     
+                        </list> -->
+                    </field>                        
+                    <button string="OK" class="oe_link"  type="object" name="action_on_close"/>
+                    
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="tier_definition_viewlistlist" model="ir.ui.view">
+        <field name="name">cn.tempselect.list</field>
+        <field name="model">cn.tempselect</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="selected_records" />
+            </list>
+        </field>
+    </record>
+    <record id="templist_model_action" model="ir.actions.act_window">
+        <field name="name">送审列表</field>
+        <field name="res_model">cn.tempselect</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <menuitem id="templatelist_menu_root" name="送审列表"  action="templist_model_action" parent="base_tier_validation.menu_tier_confirmation"   sequence="92"/>
+    
+    <!-- <menuitem id="templatelist_model_menu_action_sec" name="送审列表"  parent="dco.dco_first_level_menu_sec" action="base_tier_validationforstate.templist_model_action"/> -->
+    <!-- <record id="tier_definition_view_list_inhertlist" model="ir.ui.view">
+        <field name="name">tier.definition.inhertlist</field>
+        <field name="model">tier.definition</field>
+        <field name="inherit_id" ref="base_tier_validation.tier_definition_view_tree" />
+        <field name="arch" type="xml"> -->
+            <!-- <form string="Another Model Form"> -->
+            <!-- <xpath expr="//list" position="after">  -->
+                <!-- <footer> -->
+                    <!-- <button string="Cancel" class="oe_link" special="cancel" on_close="tier_definition.action_on_close"/> -->
+                <!-- </footer> -->
+            <!-- </xpath> -->
+            
+            <!-- </form> -->
+            
+        <!-- </field>
+    </record>   -->
+     <!-- <template id="tier_definition_view_list_inhertlist" inherit_id="tier_definition_view_list_inhertlist" name="test">
+         <xpath expr="//list" position="after">
+            <button string="Cancel" class="oe_link" special="cancel" on_close="tier_definition.action_on_close"/>
+        </xpath>
+    </template> -->
+</odoo>

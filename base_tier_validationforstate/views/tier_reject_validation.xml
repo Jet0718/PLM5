@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2017-19 ForgeFlow S.L. (https://www.forgeflow.com)
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>   
+     <record id="rjval_view_tree" model="ir.ui.view">
+        <field name="name">tier reject. rejvalidation.tree</field>
+        <field name="model">tier.reject.validation</field>
+        <field name="arch" type="xml">
+            <list string="退化关卡">
+                <field name="definition_id"  />    
+            </list>
+        </field>
+    </record>
+    <record id="dco_view_form" model="ir.ui.view">
+        <field name="name">tier reject. rejvalidation.form"</field>
+        <field name="model">tier.reject.validation</field>		
+        <field name="mode">primary</field>
+        <field name="arch" type="xml">
+            <form string="退化关卡">                
+                <sheet>
+                    <field name="definition_id"  />    
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    
+</odoo>

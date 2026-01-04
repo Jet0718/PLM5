@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<odoo>
+
+    <record id="part_stage_action" model="ir.actions.act_window">
+        <field name="name">Part 階段</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">part.stage</field>
+        <field name="view_mode">list,form</field>
+    </record>
+    <record id="part_stage_view_list" model="ir.ui.view">
+        <field name="name">part.stage.list</field>
+        <field name="model">part.stage</field>
+        <field name="arch" type="xml">
+            <list string="Part 階段">
+                <field name="name"  string="名稱" optional="show"/>
+                <field name="description"  string="描述" optional="show"/>
+                <field name="sequence"  string="序號" widget="handle"/>
+                <field name="folded"  string="摺疊" optional="show"/>
+            </list>
+        </field>
+    </record> 
+    <record id="part_stage_view_form" model="ir.ui.view">
+        <field name="name">part.stage.form</field>
+        <field name="model">part.stage</field>
+        <field name="arch" type="xml">
+            <form string="Part 階段">
+                <sheet>    
+                    <group>
+                        <group>
+                            <field name="name"  string="名稱"/>                             
+                            <field name="description"  string="描述"/>  
+                            <field name="sequence"  string="序號"/>  
+                            <field name="folded"  string="摺疊"/>
+                        </group>                  
+                    </group>
+                </sheet>
+                <chatter reload_on_post="True"/>
+            </form>
+        </field>
+    </record>
+    <record id="part_stage_view_search" model="ir.ui.view">
+        <field name="name">part.stage.search</field>
+        <field name="model">part.stage</field>
+        <field name="arch" type="xml">
+            <search string="Part階段">
+                <field name="name"  string="名稱"/>                               
+                <field name="description"  string="描述"/>  
+                <field name="sequence"  string="序號"/>  
+                <field name="folded"  string="摺疊"/>
+            </search>
+        </field>
+    </record>
+</odoo>

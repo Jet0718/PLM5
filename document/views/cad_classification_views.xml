@@ -1,0 +1,53 @@
+<odoo>
+  <record id="cad_classification_model_action" model="ir.actions.act_window">
+    <field name="name">工程图类型</field>
+    <field name="res_model">cad.classification</field>
+    <field name="view_mode">list,form</field>
+  </record>
+
+  <record id="cad_classification_view_list" model="ir.ui.view">
+    <field name="name">cad.classification.lsit</field>
+    <field name="model">cad.classification</field>
+    <field name="arch" type="xml">
+      <list>
+        <field name="name" />
+        <field name="complete_name" />
+      </list>
+    </field>
+  </record>
+  <!-- 表單視圖 -->
+  <record id="cad_classification_view_form" model="ir.ui.view">
+    <field name="name">cad.classification.form</field>
+    <field name="model">cad.classification</field>
+    <field name="arch" type="xml">
+      <form>
+        <sheet>
+          <group>
+            <group col="2">
+              <field name="name" />
+            </group>
+          </group>
+          <group>
+            <group>
+              <field name="parent_id" />
+            </group>
+          </group>
+          <group>
+            <field name="child_ids" />
+          </group>
+          <group>
+            <group col="2">
+              <field name="parent_path" />
+            </group>
+            <group col="2">
+              <field name="complete_name" />
+            </group>
+          </group>
+          <group col="1">
+            <field name="cad_ids" />
+          </group>
+        </sheet>
+      </form>
+    </field>
+  </record>
+</odoo>

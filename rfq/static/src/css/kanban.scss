@@ -1,0 +1,25 @@
+.o_kanban_record {
+  .o_kanban_card_header {
+      background: #f8f9fa;
+      border-bottom: 1px solid #dee2e6;
+      
+      .o_kanban_card_header_title {
+          min-width: 200px;
+      }
+  }
+  
+  .many2one_avatar {
+      img {
+          width: 24px;
+          height: 24px;
+          border-radius: 50%;
+      }
+  }
+  
+  .custom_status {
+      .oe_kanban_status {
+          &.approved { background: #d4edda !important; }
+          &.rejected { background: #f8d7da !important; }
+      }
+  }
+}

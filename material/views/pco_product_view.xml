@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<odoo>
+    <record id="pco_product_model_action" model="ir.actions.act_window">
+        <field name="name">送審物件</field>
+        <field name="res_model">pco.product</field>
+        <field name="view_mode">list,form</field>
+    </record>
+    <record id="pco_product_view_tree" model="ir.ui.view">
+        <field name="name">pco.product.tree</field>
+        <field name="model">pco.product</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="affected_product_id" string="舊產品" class='o_old_group'/>
+                <field name="affected_product_version" string="舊版本" class='o_old_group'/>
+                <field name="new_affected_product_id" string="新產品" class='o_new_group'/>
+                <field name="new_affected_product_version" string="新版本" class='o_new_group'/>
+            </list>
+        </field>
+    </record>
+    <record id="pco_product_view_form" model="ir.ui.view">
+        <field name="name">pco.product.form"</field>
+        <field name="model">pco.product</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="affected_product_id" string="舊產品" class='o_old_group'/>
+                            <field name="affected_product_version" string="舊版本" class='o_old_group'/>                          
+                        </group>
+                        <group>  
+                            <field name="new_affected_product_id" string="新產品" readonly="1" class='o_new_group'/>
+                            <field name="new_affected_product_version" string="新版本" class='o_new_group'/>                                              
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="pco_product_view_search" model="ir.ui.view">
+        <field name="name">pco.product.search"</field>
+        <field name="model">pco.product</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="affected_product_id" string="舊產品" domain="[('active', '=', True)]" class='o_old_group'/>
+                <field name="affected_product_version" string="舊版本" class='o_old_group'/>
+                <field name="new_affected_product_id" string="新產品" class='o_new_group'/>
+                <field name="new_affected_product_version" string="新版本" class='o_new_group'/>
+            </search>
+        </field>
+    </record>
+</odoo>

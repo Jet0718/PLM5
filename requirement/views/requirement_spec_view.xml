@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<odoo>
+    <record id="requirement_spec_action" model="ir.actions.act_window">
+        <field name="name">规格要求</field>        
+        <field name="res_model">requirement.spec</field>
+        <field name="view_mode">list,form</field>
+    </record>
+    <record id="requirement_spec_view_list" model="ir.ui.view">
+        <field name="name">requirement.spec.list</field>
+        <field name="model">requirement.spec</field>
+        <field name="arch" type="xml">
+            <list string="规格要求">
+                <field name="name" string="名称" />
+                <field name="description" string="说明"/>                            
+                <!-- <field name="requirement_id" string="关联需求"/>  -->
+            </list>
+        </field>
+    </record>
+    <record id="requirement_spec_view_form" model="ir.ui.view">
+        <field name="name">requirement.spec.form"</field>
+        <field name="model">requirement.spec</field>
+        <field name="arch" type="xml">
+            <form string="规格要求">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name" string="名称"/>
+                            <field name="description" string="说明"/>                            
+                            <!-- <field name="requirement_id" string="关联需求"/>                             -->
+                        </group>
+                    </group>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+    <record id="requirement_spec_view_search" model="ir.ui.view">
+        <field name="name">requirement.spec.search"</field>
+        <field name="model">requirement.spec</field>
+        <field name="arch" type="xml">
+            <search string="规格要求搜寻">
+                <field name="name" string="名称"/>
+                <field name="description" string="说明"/>
+            </search>
+        </field>
+    </record>
+</odoo>

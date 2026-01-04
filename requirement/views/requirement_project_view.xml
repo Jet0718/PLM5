@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+        <record id="req_project_form_view" model="ir.ui.view">
+            <field name="name">req.project.form</field>
+            <field name="model">project.project</field>
+            <field name="inherit_id" ref="project.edit_project"/>
+            <field name="arch" type="xml">
+                <!-- 栏位显示在表头中的写法 -->
+                <xpath expr="//field[@name='user_id']" position="after"> 
+                    <field name ="requirement_id" string="关联需求"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<odoo>
+    <record id="mrp_bom_form_action" model="ir.actions.act_window">
+        <field name="name">物料清單</field>
+        <field name="res_model">mrp.bom</field>
+        <field name="domain">[]</field> <!-- force empty -->
+        <field name="view_mode">list,kanban,form</field>
+    </record>
+    <record id="mrp_bom_inherit_partbom_view_form" model="ir.ui.view">
+        <field name="name">mrp.bom.form</field>
+        <field name="model">mrp.bom</field>
+        <field name="inherit_id" ref="mrp.mrp_bom_form_view" />
+        <field name="arch" type="xml">
+            <xpath expr="//sheet" position="before">
+                <header>
+                    <field name="stage_id" widget="statusbar" statusbar_visible="New,In Review,Released,On Change,Superseded"/>
+                </header>
+            </xpath>
+            <xpath expr="//field[@name='type']" position="after">
+                <field name="version"  string="版本"/>
+            </xpath>
+            <xpath expr="//page[@name='components']/field[@name='bom_line_ids']/list/field[@name='product_qty']" position="after">
+                <field name="group" string="替代群組" width="80px"/>
+                <field name="order" string="替代順序"/>
+                <field name="ratio" string="替代比例"/>
+                <field name="reference" string="插件位置" width="250px"/>
+            </xpath>
+        </field>
+    </record>
+    <!-- <record id="partbom_view_search" model="ir.ui.view">
+        <field name="name">part.bom.search</field>
+        <field name="model">part.bom</field>
+        <field name="arch" type="xml">
+            <search string="物料清單">
+                <field name="part_id" string="BOM"/>
+                <field name="quantity" string="數量"/>
+                <field name="group" string="替代群組"/>
+                <field name="order" string="替代順序"/>
+                <field name="ratio" string="替代比例"/>
+                <field name="reference" string="插件位置"/>
+                <field name="part_id2" string="父階Part"/>
+            </search>
+        </field>
+    </record> -->
+</odoo>

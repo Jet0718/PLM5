@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_requirement,access_requirement,model_requirement,base.group_user,1,1,1,1
+access_requirement_purpose,access_requirement_purpose,model_requirement_purpose,base.group_user,1,1,1,1
+access_requirement_spec,access_requirement_spec,model_requirement_spec,base.group_user,1,1,1,1
+access_requirement_specline,access_requirement_specline,model_requirement_specline,base.group_user,1,1,1,1
+

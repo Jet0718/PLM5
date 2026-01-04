@@ -1,0 +1,20 @@
+<odoo>
+  <record id="product_characteristic_model_action" model="ir.actions.act_window">
+    <field name="name">産品特性</field>
+    <field name="res_model">product.characteristic</field>
+    <field name="view_mode">list,form</field>
+  </record>
+  <!-- 列表視圖：顯示關鍵字段，支持排序和篩選 -->
+  <record id="product_characteristic_list" model="ir.ui.view">
+    <field name="name">product.characteristic.list</field>
+    <field name="model">product.characteristic</field>
+    <field name="arch" type="xml">
+      <list string="産品特性" editable="bottom">
+        <field name="name"/>
+        <field name="description"/>
+        <field name="product_process_mark"/>
+        <field name="type"/>
+      </list>
+    </field>
+  </record>
+</odoo>

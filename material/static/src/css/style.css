@@ -1,0 +1,26 @@
+.o_old_group {
+    background-color: rgb(241, 178, 178) !important ; /* 这里可以设置你想要的颜色 */
+    padding: 5px !important; /* 可以根据需要调整内边距 */
+    border-radius: 5px !important; /* 可以根据需要调整边框圆角 */
+}
+.o_new_group {
+    background-color: rgb(164, 244, 215) !important; /* 这里可以设置你想要的颜色 */
+    padding: 5px !important; /* 可以根据需要调整内边距 */
+    border-radius: 5px !important; /* 可以根据需要调整边框圆角 */
+}
+
+
+.label-business {
+    color: red; /* 设置标签颜色为红色 */
+}
+.label_color label{
+    color: red !important; /* 将标签颜色设置为红色 */
+}
+
+/* .oe_kanban_folded {
+    display: none;
+} */
+
+.o_kanban_group[data-stage_id="Close"] .o_kanban_record {
+    display: none;
+}

@@ -1,0 +1,23 @@
+<odoo>
+  <record id="quotation_additional_document_model_action" model="ir.actions.act_window">
+    <field name="name">RFQ附加文件</field>
+    <field name="res_model">quotation.additional.document</field>
+    <field name="view_mode">list,form</field>
+  </record>
+  <!-- 列表視圖：顯示關鍵字段，支持排序和篩選 -->
+  <record id="quotation_additional_document_list" model="ir.ui.view">
+    <field name="name">quotation.additional.document.list</field>
+    <field name="model">quotation.additional.document</field>
+    <field name="arch" type="xml">
+      <list string="RFQ附加文件" editable="bottom">
+        <field name="upload_time"/>
+        <field name="file_name"/>
+        <field name="file_info"/>
+        <field name="change_record"/>
+        <field name="file" filename="file_name"/>
+        <field name="attach_file_name"/>
+        <field name="attach_file" filename="attach_file_name"/>
+      </list>
+    </field>
+  </record>
+</odoo>

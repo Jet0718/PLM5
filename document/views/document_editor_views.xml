@@ -1,0 +1,34 @@
+<odoo>
+  <record id="document_editor_model_action" model="ir.actions.act_window">
+    <field name="name">編輯工具</field>
+    <field name="res_model">document.editor</field>
+    <field name="view_mode">list,form</field>
+  </record>
+  <!-- 列表視圖 -->
+  <record id="document_editor_list" model="ir.ui.view">
+    <field name="name">document.editor.list</field>
+    <field name="model">document.editor</field>
+    <field name="arch" type="xml">
+      <list string="編輯工具列表">
+        <field name="name" />
+        <field name="version" />
+        <field name="sequence" widget="handle" />
+      </list>
+    </field>
+  </record>
+  <!-- 表單視圖 -->
+  <record id="document_editor_form" model="ir.ui.view">
+    <field name="name">document.editor.form</field>
+    <field name="model">document.editor</field>
+    <field name="arch" type="xml">
+      <form string="編輯工具">
+        <sheet>
+          <group>
+            <h1><field name="name" /></h1>
+            <field name="version" />
+          </group>
+        </sheet>
+      </form>
+    </field>
+  </record>
+</odoo>

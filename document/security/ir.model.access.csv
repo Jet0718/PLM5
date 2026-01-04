@@ -1,0 +1,16 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+document.access_document,access_document,document.model_document,base.group_user,1,1,1,1
+document.access_document_classification,access_document_classification,document.model_document_classification,base.group_user,1,1,1,1
+document.access_document_editor,access_document_editor,document.model_document_editor,base.group_user,1,1,1,1
+document.access_document_state,access_document_state,document.model_document_state,base.group_user,1,1,1,1
+document.access_document_attachment_rel,access_document_attachment_rel,document.model_document_attachment_rel,base.group_user,1,1,1,1
+document.access_cad,access_cad,document.model_cad,base.group_user,1,1,1,1
+document.access_cad_classification,access_cad_classification,document.model_cad_classification,base.group_user,1,1,1,1
+document.access_cad_state,access_cad_state,document.model_cad_state,base.group_user,1,1,1,1
+document.access_cad_attachment_rel,access_cad_attachment_rel,document.model_cad_attachment_rel,base.group_user,1,1,1,1
+document.access_express_dco,access_express_dco,document.model_express_dco,base.group_user,1,1,1,1
+document.access_express_dco_attachment_rel,access_express_dco_attachment_rel,document.model_express_dco_attachment_rel,base.group_user,1,1,1,1
+document.access_express_dco_document_rel,access_express_dco_document_rel,document.model_express_dco_document_rel,base.group_user,1,1,1,1
+document.access_express_dco_cad_rel,access_express_dco_cad_rel,document.model_express_dco_cad_rel,base.group_user,1,1,1,1
+document.access_express_dco_state,access_express_dco_state,document.model_express_dco_state,base.group_user,1,1,1,1
+

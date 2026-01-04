@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data noupdate="1">
+    <!-- 一級分類 -->
+    <record id="cad_classification_mechanical" model="cad.classification">
+      <field name="name">Mechanical</field>
+    </record>
+
+    <record id="cad_classification_electronic" model="cad.classification">
+      <field name="name">Electronic</field>
+    </record>
+
+    <record id="cad_classification_optical" model="cad.classification">
+      <field name="name">Optical</field>
+    </record>
+
+    <record id="cad_classification_package" model="cad.classification">
+      <field name="name">Package</field>
+    </record>
+
+    <record id="cad_classification_label" model="cad.classification">
+      <field name="name">Label</field>
+    </record>
+
+    <record id="cad_classification_customer" model="cad.classification">
+      <field name="name">Customer</field>
+    </record>
+
+    <!-- Mechanical子分類 -->
+    <record id="cad_classification_mechanical_finished" model="cad.classification">
+      <field name="name">成品圖</field>
+      <field name="parent_id" ref="cad_classification_mechanical" />
+    </record>
+
+    <record id="cad_classification_mechanical_id" model="cad.classification">
+      <field name="name">ID圖</field>
+      <field name="parent_id" ref="cad_classification_mechanical" />
+    </record>
+
+    <record id="cad_classification_mechanical_exploded" model="cad.classification">
+      <field name="name">爆炸圖</field>
+      <field name="parent_id" ref="cad_classification_mechanical" />
+    </record>
+
+    <record id="cad_classification_mechanical_assembly" model="cad.classification">
+      <field name="name">組合圖</field>
+      <field name="parent_id" ref="cad_classification_mechanical" />
+    </record>
+
+    <record id="cad_classification_mechanical_component" model="cad.classification">
+      <field name="name">部品圖</field>
+      <field name="parent_id" ref="cad_classification_mechanical" />
+    </record>
+
+    <record id="cad_classification_mechanical_spec" model="cad.classification">
+      <field name="name">部品規格書</field>
+      <field name="parent_id" ref="cad_classification_mechanical" />
+    </record>
+
+    <!-- Electronic子分類 -->
+    <record id="cad_classification_electronic_circuit" model="cad.classification">
+      <field name="name">電路圖</field>
+      <field name="parent_id" ref="cad_classification_electronic" />
+    </record>
+
+    <record id="cad_classification_electronic_layout" model="cad.classification">
+      <field name="name">LAYOUT圖</field>
+      <field name="parent_id" ref="cad_classification_electronic" />
+    </record>
+
+    <record id="cad_classification_electronic_gerber" model="cad.classification">
+      <field name="name">GERBER圖</field>
+      <field name="parent_id" ref="cad_classification_electronic" />
+    </record>
+
+    <record id="cad_classification_electronic_position" model="cad.classification">
+      <field name="name">零件位置圖</field>
+      <field name="parent_id" ref="cad_classification_electronic" />
+    </record>
+
+    <record id="cad_classification_electronic_part_spec" model="cad.classification">
+      <field name="name">零件規格書</field>
+      <field name="parent_id" ref="cad_classification_electronic" />
+    </record>
+
+    <!-- Optical子分類 -->
+    <record id="cad_classification_optical_assembly" model="cad.classification">
+      <field name="name">組合圖</field>
+      <field name="parent_id" ref="cad_classification_optical" />
+    </record>
+
+    <record id="cad_classification_optical_component" model="cad.classification">
+      <field name="name">部品圖</field>
+      <field name="parent_id" ref="cad_classification_optical" />
+    </record>
+
+    <!-- Package子分類 -->
+    <record id="cad_classification_package_exploded" model="cad.classification">
+      <field name="name">爆炸圖</field>
+      <field name="parent_id" ref="cad_classification_package" />
+    </record>
+
+    <record id="cad_classification_package_assembly" model="cad.classification">
+      <field name="name">組合圖</field>
+      <field name="parent_id" ref="cad_classification_package" />
+    </record>
+
+    <record id="cad_classification_package_component" model="cad.classification">
+      <field name="name">部品圖</field>
+      <field name="parent_id" ref="cad_classification_package" />
+    </record>
+
+    <!-- Label子分類 -->
+    <record id="cad_classification_label_component" model="cad.classification">
+      <field name="name">部品圖</field>
+      <field name="parent_id" ref="cad_classification_label" />
+    </record>
+
+    <record id="cad_classification_label_manual" model="cad.classification">
+      <field name="name">說明書</field>
+      <field name="parent_id" ref="cad_classification_label" />
+    </record>
+
+    <!-- Customer子分類 -->
+    <record id="cad_classification_customer_finished" model="cad.classification">
+      <field name="name">成品圖</field>
+      <field name="parent_id" ref="cad_classification_customer" />
+    </record>
+
+    <record id="cad_classification_customer_id" model="cad.classification">
+      <field name="name">ID圖</field>
+      <field name="parent_id" ref="cad_classification_customer" />
+    </record>
+  </data>
+</odoo>

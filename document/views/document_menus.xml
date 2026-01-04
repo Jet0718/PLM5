@@ -1,0 +1,39 @@
+<odoo>
+  <data>
+    <menuitem id="document_menu_root" name="圖文管理" web_icon="document,static/description/icon.png">
+      <menuitem id="document_first_level" name="圖文管理">
+        <menuitem id="document_menu" name="文件"
+          action="document_model_action" sequence="10" />
+        <menuitem id="cad_menu" name="工程圖"
+          action="cad_model_action" sequence="20" />
+          <menuitem id="express_dco_menu" name="圖/文 送審單"
+          action="express_dco_model_action" sequence="30" />
+      </menuitem>
+      <menuitem id="document_second_level" name="設置">
+        <menuitem id="document_classification_menu" name="文件類型"
+          action="document_classification_model_action" sequence="10" />
+        <!-- <menuitem id="document_state_menu" name="文件狀態"
+          action="document_state_model_action" sequence="20" /> -->
+        <menuitem id="cad_classification_menu" name="工程圖類型"
+          action="cad_classification_model_action" sequence="30" />
+        <!-- <menuitem id="cad_state_menu" name="工程圖狀態"
+          action="cad_state_model_action" sequence="40" /> -->
+          <!-- <menuitem id="express_dco_state_menu" name="圖文送審單狀態"
+          action="express_dco_state_model_action" sequence="50" /> -->
+        <menuitem id="document_editor_menu" name="編輯工具"
+          action="document_editor_model_action" sequence="200" />
+      </menuitem>
+    </menuitem>
+
+<!--工程圖文管理總目錄--> 
+    <menuitem id="menu_eng_document_summary"   name="ENG Document Summary"  parent="mrp_plm.menu_mrp_plm_root" sequence="50"/>
+        <menuitem id="document_first_level2"   name="圖文管理"  parent="menu_eng_document_summary" sequence="1"/>
+            <menuitem id="document_menu2" name="文件" parent="document_first_level2" action="document_model_action" sequence="1" />
+            <menuitem id="cad_menu2" name="工程圖" parent="document_first_level2" action="cad_model_action" sequence="2" />
+            <menuitem id="express_dco_menu2" name="圖/文 送審單" parent="document_first_level2" action="express_dco_model_action" sequence="3" />
+        <menuitem id="document_second_level2"   name="設置"  parent="menu_eng_document_summary" sequence="2"/>
+            <menuitem id="document_classification_menu2" name="文件類型" parent="document_second_level2" action="document_classification_model_action" sequence="1" />
+            <menuitem id="cad_classification_menu2" name="工程圖類型" parent="document_second_level2" action="cad_classification_model_action" sequence="2" />
+            <menuitem id="document_editor_menu" name="編輯工具" parent="document_second_level2" action="document_editor_model_action" sequence="3" />
+  </data>
+</odoo>

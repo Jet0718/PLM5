@@ -1,0 +1,157 @@
+<?xml version="1.0"?>
+<odoo>
+    <record id="product_template_action" model="ir.actions.act_window">
+        <field name="name">物料</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">product.template</field>
+        <field name="view_mode">kanban,list,form</field>
+    </record>
+
+    <record id="product_template_inherit_part_view_list" model="ir.ui.view">
+        <field name="name">product.template.part.list</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_tree_view" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='name']" position="before">
+                <field name="material_number"  string="正式料號" width="100px" optional="show"/>   
+                <field name="item_number"  string="PLM編號" optional="show"/>
+                <field name="create_uid"  string="創建者" optional="show"/>
+                <field name="create_date"  string="創建日期" optional="show"/> 
+                <field name="classification"  string="類別" optional="show"/>
+            </xpath>
+            <xpath expr="//field[@name='name']" position="after">
+                <field name="spec"  string="規格" optional="show"/>
+                <field name="description"  string="料件說明" optional="show"/>
+                <field name="make_buy"  string="料件屬性" optional="show"/>
+                <field name="units"  string="單位" optional="show"/>
+                <field name="version"  string="版本" optional="show"/>
+                <field name="image_1920"  string="图片" widget="image" optional="show"/>
+                <field name="owner_id"  string="料號擁有者" optional="show"/>
+                <field name="department_id"  string="物料管理部門" optional="show"/>
+                <field name="team_id"  string="團隊" optional="show"/>
+                <field name="stage_id"  string="狀態階段" optional="show"/>
+                <field name="effective_date"  string="生效日期" optional="show"/>
+                <field name="released_date"  string="發行日期" optional="show"/>
+                <field name="accounting"  string="會計分類" optional="show"/>
+                <field name="replenishment"  string="補貨政策" optional="show"/>
+                <field name="inspection"  string="檢驗方式" optional="show"/>
+                <field name="batchnumber"  string="批號管理" optional="show"/>
+            </xpath>
+        </field>
+    </record> 
+    <record id="product_template_inherit_part_view_form" model="ir.ui.view">
+        <field name="name">product.template.form</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_form_view" />
+        <field name="arch" type="xml">
+            <xpath expr="//button[@name='action_open_documents']" position="after">
+                <button name="action_set_inreview" string="審核" type="object"/>
+                <button name="action_set_released" string="發行" type="object"/>
+                <field name="stage_id" widget="statusbar" statusbar_visible="New,In Review,Released,On Change,Superseded"/>
+            </xpath>
+            <xpath expr="//div[@name='options']" position="after">
+                <group>
+                    <group> 
+                        <field name="material_number"  string="正式料號" width="100px"/>   
+                        <field name="item_number"  string="PLM編號"/>
+                        <field name="create_uid"  string="創建者"/>
+                        <field name="create_date"  string="創建日期"/> 
+                        <field name="classification"  string="類別"/>
+                        <field name="spec"  string="規格"/>
+                        <field name="description"  string="料件說明"/>
+                        <field name="make_buy"  string="料件屬性"/>
+                        <field name="units"  string="單位"/>
+                        <field name="version"  string="版本"/>
+                        <field name="stage_id"  string="狀態" readonly="1"/>
+                        <field name="owner_id"  string="料號擁有者"/>
+                        <field name="department_id"  string="物料管理部門"/>
+                        <field name="team_id"  string="團隊"/>
+                    </group>  
+                    <group>   
+                        <!-- <field name="image_field"  string=""  widget="image" class="oe_avatar" options="{'size': [100, 100]}" /> -->
+                        <field name="effective_date"  string="生效日期"/>
+                        <field name="released_date"  string="發行日期"/>
+                        <field name="accounting"  string="會計分類"/>
+                        <field name="replenishment"  string="補貨政策"/>
+                        <field name="inspection"  string="檢驗方式"/>
+                        <field name="batchnumber"  string="批號管理"/>
+                    </group> 
+                </group>
+            </xpath>
+            <xpath expr="//notebook" position="inside">
+                <page string="附件">                            
+                    <group>
+                        <field name="part_file" widget="many2many_binary" nolabel="1" colspan="2" context="{'disable_preview': 1, 'form_view_ref': 'project_inherit.view_attachfileprj_form_inherit'}"/>
+                    </group>
+                </page>
+                <page string="分類詳細內容">
+                    <field name="part_class_ids" string="物料分類內容"> 
+                        <list string="物料分類內容" editable="top">
+                            <!-- <field name="classification" string="分類"/> -->
+                            <field name="name" string="名稱" />
+                            <field name="list_id" string="清單選項" readonly="name in ['雷射數量','Divergence','同軸度','工作頻率','工作電壓','線材長度','線材規格','發散角度','光點/光線大小','應用距離','機構尺寸大小','材質','封裝尺吋(電子)','精密度(電子)','套用鏡片尺吋','鏡片BFL尺吋','鏡片EFL尺吋','鐳射封裝','配合銅件料號','外觀顏色','外觀尺吋(規格)','外觀長度(規格)','模具材質']"/>
+                            <field name="description" string="描述" readonly="not name in ['雷射數量','Divergence','同軸度','工作頻率','工作電壓','線材長度','線材規格','發散角度','光點/光線大小','應用距離','機構尺寸大小','材質','封裝尺吋(電子)','精密度(電子)','套用鏡片尺吋','鏡片BFL尺吋','鏡片EFL尺吋','鐳射封裝','配合銅件料號','外觀顏色','外觀尺吋(規格)','外觀長度(規格)','模具材質']"/>
+                            <!-- <field name="part_id" string="關聯物料" readonly='True'/> -->
+                        </list>
+                    </field>
+                </page>
+                <page string="關聯文件">
+                    <field name="document_id" string="關聯文件"/> 
+                </page>                
+                <page string="關聯工程圖">
+                    <field name="cad_id" string="關聯工程圖"/> 
+                </page>
+            </xpath>
+        </field>
+    </record>   
+            
+   <record id="product_template_inherit_part_view_search" model="ir.ui.view">
+        <field name="name">product.template.search</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_search_view" />
+        <field name="arch" type="xml">
+             <xpath expr="//search" position="inside">                               
+                <field name="material_number"  string="正式料號" />   
+                <field name="item_number"  string="PLM編號"/>
+                <field name="create_uid"  string="創建者"/>
+                <field name="create_date"  string="創建日期"/> 
+                <field name="classification"  string="類別"/>
+                <field name="spec"  string="規格"/>
+                <field name="description"  string="料件說明"/>
+            </xpath>
+        </field>
+    </record>
+    <record id="product_template_inherit_view_part_kanban" model="ir.ui.view">
+        <field name="name">Product.template.kanban</field>
+        <field name="type">kanban</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_kanban_view" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='product_properties']" position="after">
+                    <div class="mb-1">
+                        <strong>正式料號:</strong> <field name="material_number"/>
+                    </div>
+                    <div class="mb-1">
+                        <strong>PLM編號:</strong> <field name="item_number"/>
+                    </div>
+                    <div class="mb-1">
+                        <strong>類別:</strong> <field name="classification"/>
+                    </div>
+                    <div class="mb-1">
+                        <strong>規格:</strong> <field name="spec"/>
+                    </div>
+                    <div class="mb-1">
+                        <strong>料件說明:</strong> <field name="description"/>
+                    </div>
+                    <div class="mb-1">
+                        <strong>版本:</strong> <field name="version"/>
+                    </div>
+                    <div class="mb-1">
+                        <strong>狀態:</strong> <field name="stage_id"/>
+                    </div>
+            </xpath>
+        </field>
+    </record>
+</odoo>
+
+

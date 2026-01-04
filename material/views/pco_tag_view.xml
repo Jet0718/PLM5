@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<odoo>
+    <record id="pco_tag_model_action" model="ir.actions.act_window">
+        <field name="name">變更申請單-標簽</field>        
+        <field name="res_model">pco.tag</field>
+        <field name="view_mode">list,form</field>
+    </record>
+    <record id="pco_tag_view_tree" model="ir.ui.view">
+        <field name="name">pco.tag.list</field>
+        <field name="model">pco.tag</field>
+        <field name="arch" type="xml">
+            <list string="變更申請單-標簽">
+                <field name="name" string="標簽名稱" />
+                <field name="description" string="標簽說明"/>    
+            </list>
+        </field>
+    </record>
+    <record id="pco_tag_view_form" model="ir.ui.view">
+        <field name="name">pco.tag.form"</field>
+        <field name="model">pco.tag</field>
+        <field name="arch" type="xml">
+            <form string="變更申請單-標簽">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name" string="標簽名稱" />
+                            <field name="description" string="標簽說明"/>                                
+                        </group>
+                    </group>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+    <record id="pco_tag_view_search" model="ir.ui.view">
+        <field name="name">pco.tag.search"</field>
+        <field name="model">pco.tag</field>
+        <field name="arch" type="xml">
+            <search string="PCO標簽搜尋">
+                <field name="name" string="標簽名稱" />
+                <field name="description" string="標簽說明"/>   
+            </search>
+        </field>
+    </record>
+</odoo>

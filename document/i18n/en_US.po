@@ -1,0 +1,653 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* document
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-04-23 13:23+0000\n"
+"PO-Revision-Date: 2025-04-23 13:23+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_express_dco_cad_rel__cad_id
+msgid "CAD"
+msgstr ""
+
+#. module: document
+#: model:ir.model,name:document.model_cad_state
+msgid "CAD State"
+msgstr ""
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_cad__create_uid
+#: model:ir.model.fields,field_description:document.field_cad_attachment_rel__create_uid
+#: model:ir.model.fields,field_description:document.field_cad_classification__create_uid
+#: model:ir.model.fields,field_description:document.field_cad_state__create_uid
+#: model:ir.model.fields,field_description:document.field_document__create_uid
+#: model:ir.model.fields,field_description:document.field_document_attachment_rel__create_uid
+#: model:ir.model.fields,field_description:document.field_document_classification__create_uid
+#: model:ir.model.fields,field_description:document.field_document_editor__create_uid
+#: model:ir.model.fields,field_description:document.field_document_state__create_uid
+#: model:ir.model.fields,field_description:document.field_express_dco__create_uid
+#: model:ir.model.fields,field_description:document.field_express_dco_attachment_rel__create_uid
+#: model:ir.model.fields,field_description:document.field_express_dco_cad_rel__create_uid
+#: model:ir.model.fields,field_description:document.field_express_dco_document_rel__create_uid
+#: model:ir.model.fields,field_description:document.field_express_dco_state__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_cad__create_date
+#: model:ir.model.fields,field_description:document.field_cad_attachment_rel__create_date
+#: model:ir.model.fields,field_description:document.field_cad_classification__create_date
+#: model:ir.model.fields,field_description:document.field_cad_state__create_date
+#: model:ir.model.fields,field_description:document.field_document__create_date
+#: model:ir.model.fields,field_description:document.field_document_attachment_rel__create_date
+#: model:ir.model.fields,field_description:document.field_document_classification__create_date
+#: model:ir.model.fields,field_description:document.field_document_editor__create_date
+#: model:ir.model.fields,field_description:document.field_document_state__create_date
+#: model:ir.model.fields,field_description:document.field_express_dco__create_date
+#: model:ir.model.fields,field_description:document.field_express_dco_attachment_rel__create_date
+#: model:ir.model.fields,field_description:document.field_express_dco_cad_rel__create_date
+#: model:ir.model.fields,field_description:document.field_express_dco_document_rel__create_date
+#: model:ir.model.fields,field_description:document.field_express_dco_state__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_express_dco_cad_rel__express_dco_id
+#: model:ir.model.fields,field_description:document.field_express_dco_document_rel__express_dco_id
+msgid "DCO"
+msgstr ""
+
+#. module: document
+#: model:ir.model,name:document.model_express_dco
+#: model:ir.model.fields,field_description:document.field_express_dco_attachment_rel__express_dco_id
+msgid "DCO-图/文 送审单"
+msgstr "DCO-Image/Text Submission for Review"
+
+#. module: document
+#: model:ir.model,name:document.model_express_dco_attachment_rel
+msgid "DCO-图/文 送审单-附件 关联表"
+msgstr ""
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_express_dco__item_number
+msgid "DCO编号"
+msgstr ""
+
+#. module: document
+#: model:ir.actions.act_window,name:document.express_dco_state_model_action
+#: model_terms:ir.ui.view,arch_db:document.express_dco_state_form
+msgid "DCO送审单状态"
+msgstr ""
+
+#. module: document
+#: model_terms:ir.ui.view,arch_db:document.express_dco_state_list
+msgid "DCO送审单状态列表"
+msgstr ""
+
+#. module: document
+#: model:ir.model.fields.selection,name:document.selection__document__document_type__dhf
+msgid "DHF"
+msgstr ""
+
+#. module: document
+#: model:ir.model.fields.selection,name:document.selection__document__document_type__dmr
+msgid "DMR"
+msgstr ""
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_cad__display_name
+#: model:ir.model.fields,field_description:document.field_cad_attachment_rel__display_name
+#: model:ir.model.fields,field_description:document.field_cad_classification__display_name
+#: model:ir.model.fields,field_description:document.field_cad_state__display_name
+#: model:ir.model.fields,field_description:document.field_document__display_name
+#: model:ir.model.fields,field_description:document.field_document_attachment_rel__display_name
+#: model:ir.model.fields,field_description:document.field_document_classification__display_name
+#: model:ir.model.fields,field_description:document.field_document_editor__display_name
+#: model:ir.model.fields,field_description:document.field_document_state__display_name
+#: model:ir.model.fields,field_description:document.field_express_dco__display_name
+#: model:ir.model.fields,field_description:document.field_express_dco_attachment_rel__display_name
+#: model:ir.model.fields,field_description:document.field_express_dco_cad_rel__display_name
+#: model:ir.model.fields,field_description:document.field_express_dco_document_rel__display_name
+#: model:ir.model.fields,field_description:document.field_express_dco_state__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: document
+#: model:ir.model,name:document.model_document_editor
+msgid "Document Editor"
+msgstr ""
+
+#. module: document
+#: model:ir.model,name:document.model_document_state
+msgid "Document State"
+msgstr ""
+
+#. module: document
+#: model:ir.model,name:document.model_express_dco_state
+msgid "Express Dco State"
+msgstr ""
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_cad__id
+#: model:ir.model.fields,field_description:document.field_cad_attachment_rel__id
+#: model:ir.model.fields,field_description:document.field_cad_classification__id
+#: model:ir.model.fields,field_description:document.field_cad_state__id
+#: model:ir.model.fields,field_description:document.field_document__id
+#: model:ir.model.fields,field_description:document.field_document_attachment_rel__id
+#: model:ir.model.fields,field_description:document.field_document_classification__id
+#: model:ir.model.fields,field_description:document.field_document_editor__id
+#: model:ir.model.fields,field_description:document.field_document_state__id
+#: model:ir.model.fields,field_description:document.field_express_dco__id
+#: model:ir.model.fields,field_description:document.field_express_dco_attachment_rel__id
+#: model:ir.model.fields,field_description:document.field_express_dco_cad_rel__id
+#: model:ir.model.fields,field_description:document.field_express_dco_document_rel__id
+#: model:ir.model.fields,field_description:document.field_express_dco_state__id
+msgid "ID"
+msgstr ""
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_cad__write_uid
+#: model:ir.model.fields,field_description:document.field_cad_attachment_rel__write_uid
+#: model:ir.model.fields,field_description:document.field_cad_classification__write_uid
+#: model:ir.model.fields,field_description:document.field_cad_state__write_uid
+#: model:ir.model.fields,field_description:document.field_document__write_uid
+#: model:ir.model.fields,field_description:document.field_document_attachment_rel__write_uid
+#: model:ir.model.fields,field_description:document.field_document_classification__write_uid
+#: model:ir.model.fields,field_description:document.field_document_editor__write_uid
+#: model:ir.model.fields,field_description:document.field_document_state__write_uid
+#: model:ir.model.fields,field_description:document.field_express_dco__write_uid
+#: model:ir.model.fields,field_description:document.field_express_dco_attachment_rel__write_uid
+#: model:ir.model.fields,field_description:document.field_express_dco_cad_rel__write_uid
+#: model:ir.model.fields,field_description:document.field_express_dco_document_rel__write_uid
+#: model:ir.model.fields,field_description:document.field_express_dco_state__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_cad__write_date
+#: model:ir.model.fields,field_description:document.field_cad_attachment_rel__write_date
+#: model:ir.model.fields,field_description:document.field_cad_classification__write_date
+#: model:ir.model.fields,field_description:document.field_cad_state__write_date
+#: model:ir.model.fields,field_description:document.field_document__write_date
+#: model:ir.model.fields,field_description:document.field_document_attachment_rel__write_date
+#: model:ir.model.fields,field_description:document.field_document_classification__write_date
+#: model:ir.model.fields,field_description:document.field_document_editor__write_date
+#: model:ir.model.fields,field_description:document.field_document_state__write_date
+#: model:ir.model.fields,field_description:document.field_express_dco__write_date
+#: model:ir.model.fields,field_description:document.field_express_dco_attachment_rel__write_date
+#: model:ir.model.fields,field_description:document.field_express_dco_cad_rel__write_date
+#: model:ir.model.fields,field_description:document.field_express_dco_document_rel__write_date
+#: model:ir.model.fields,field_description:document.field_express_dco_state__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_cad__parent_path
+#: model:ir.model.fields,field_description:document.field_cad_classification__parent_path
+#: model:ir.model.fields,field_description:document.field_document_classification__parent_path
+msgid "Parent Path"
+msgstr ""
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_cad_classification__parent_id
+#: model:ir.model.fields,field_description:document.field_document_classification__parent_id
+msgid "上级分类"
+msgstr "Superior classification"
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_cad_classification__child_ids
+#: model:ir.model.fields,field_description:document.field_document_classification__child_ids
+msgid "下级分类"
+msgstr "Subordinate classification"
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_cad__is_project
+#: model:ir.model.fields,field_description:document.field_document__is_project
+#: model:ir.model.fields,field_description:document.field_express_dco__is_project
+msgid "专案专属"
+msgstr ""
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_express_dco__subject
+msgid "主旨"
+msgstr ""
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_express_dco__reason
+msgid "原因说明"
+msgstr ""
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_cad__release_file
+msgid "发行文件"
+msgstr ""
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_cad__release_date
+#: model:ir.model.fields,field_description:document.field_document__release_date
+#: model:ir.model.fields,field_description:document.field_express_dco__release_date
+msgid "发行日期"
+msgstr ""
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_cad__in_development
+#: model:ir.model.fields,field_description:document.field_document__in_development
+msgid "变更中"
+msgstr ""
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_cad__name
+msgid "名称"
+msgstr ""
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_cad__team_id
+#: model:ir.model.fields,field_description:document.field_document__team_id
+#: model:ir.model.fields,field_description:document.field_express_dco__team_id
+msgid "团队"
+msgstr ""
+
+#. module: document
+#: model:ir.ui.menu,name:document.express_dco_menu
+#: model_terms:ir.ui.view,arch_db:document.express_dco_form
+#: model_terms:ir.ui.view,arch_db:document.express_dco_kanban
+#: model_terms:ir.ui.view,arch_db:document.express_dco_list
+msgid "图/文 送审单"
+msgstr "Images/Text Submission Form"
+
+#. module: document
+#: model:ir.ui.menu,name:document.document_first_level
+#: model:ir.ui.menu,name:document.document_menu_root
+msgid "图文管理"
+msgstr "Graphic and text management."
+
+#. module: document
+#: model:ir.ui.menu,name:document.express_dco_state_menu
+msgid "图文送审单状态"
+msgstr "The status of the graphic and text review form."
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_cad__child_ids
+msgid "子节工程图"
+msgstr "Sub-project drawing"
+
+#. module: document
+#: model_terms:ir.ui.view,arch_db:document.cad_form
+msgid "子阶节工程图"
+msgstr ""
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_document_editor__name
+msgid "工具名称"
+msgstr ""
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_document_editor__version
+msgid "工具版本"
+msgstr ""
+
+#. module: document
+#: model:ir.actions.act_window,name:document.cad_model_action
+#: model:ir.model,name:document.model_cad
+#: model:ir.model.fields,field_description:document.field_cad_attachment_rel__cad_id
+#: model:ir.model.fields.selection,name:document.selection__express_dco__category__cad
+#: model:ir.ui.menu,name:document.cad_menu
+#: model_terms:ir.ui.view,arch_db:document.cad_kanban
+#: model_terms:ir.ui.view,arch_db:document.cad_list
+msgid "工程图"
+msgstr "Engineering drawing"
+
+#. module: document
+#: model:ir.model,name:document.model_cad_classification
+msgid "工程图分类"
+msgstr ""
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_express_dco__cad_reviewer_id
+msgid "工程图初审人员"
+msgstr ""
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_express_dco__cad_reviewer2_id
+msgid "工程图复审"
+msgstr ""
+
+#. module: document
+#: model:ir.actions.act_window,name:document.cad_state_model_action
+#: model:ir.ui.menu,name:document.cad_state_menu
+msgid "工程图状态"
+msgstr "Engineering drawing status."
+
+#. module: document
+#: model:ir.actions.act_window,name:document.cad_classification_model_action
+#: model:ir.ui.menu,name:document.cad_classification_menu
+msgid "工程图类型"
+msgstr "Type of engineering drawing."
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_cad__item_number
+msgid "工程图编号"
+msgstr ""
+
+#. module: document
+#: model:ir.model,name:document.model_cad_attachment_rel
+msgid "工程图附件关联表"
+msgstr ""
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_document_editor__sequence
+msgid "序号"
+msgstr ""
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_cad_state__folded
+#: model:ir.model.fields,field_description:document.field_document_state__folded
+#: model:ir.model.fields,field_description:document.field_express_dco_state__folded
+msgid "折叠"
+msgstr ""
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_cad__owner_id
+#: model:ir.model.fields,field_description:document.field_document__owner_id
+msgid "拥有者"
+msgstr ""
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_cad_attachment_rel__sort_order
+#: model:ir.model.fields,field_description:document.field_document_attachment_rel__sort_order
+#: model:ir.model.fields,field_description:document.field_express_dco_cad_rel__sort_order
+msgid "排序"
+msgstr ""
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_cad__description
+#: model:ir.model.fields,field_description:document.field_express_dco__description
+msgid "描述"
+msgstr ""
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_cad_classification__cad_ids
+#: model:ir.model.fields,field_description:document.field_document_attachment_rel__document_id
+#: model:ir.model.fields,field_description:document.field_document_classification__document_ids
+#: model:ir.model.fields,field_description:document.field_express_dco_document_rel__document_id
+#: model:ir.model.fields.selection,name:document.selection__express_dco__category__document
+#: model:ir.ui.menu,name:document.document_menu
+msgid "文档"
+msgstr "Document"
+
+#. module: document
+#: model:ir.model,name:document.model_document_classification
+msgid "文档分类"
+msgstr ""
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_document__name
+msgid "文档名称"
+msgstr ""
+
+#. module: document
+#: model:ir.actions.act_window,name:document.document_state_model_action
+#: model:ir.ui.menu,name:document.document_state_menu
+#: model_terms:ir.ui.view,arch_db:document.cad_state_form
+#: model_terms:ir.ui.view,arch_db:document.document_state_form
+msgid "文档状态"
+msgstr "Document status"
+
+#. module: document
+#: model_terms:ir.ui.view,arch_db:document.cad_state_list
+#: model_terms:ir.ui.view,arch_db:document.document_state_list
+msgid "文档状态列表"
+msgstr ""
+
+#. module: document
+#: model:ir.actions.act_window,name:document.document_model_action
+#: model:ir.actions.act_window,name:document.express_dco_model_action
+#: model:ir.model,name:document.model_document
+#: model_terms:ir.ui.view,arch_db:document.cad_form
+#: model_terms:ir.ui.view,arch_db:document.document_form
+#: model_terms:ir.ui.view,arch_db:document.document_kanban
+#: model_terms:ir.ui.view,arch_db:document.document_list
+msgid "文档管理"
+msgstr ""
+
+#. module: document
+#: model:ir.actions.act_window,name:document.document_classification_model_action
+#: model:ir.model.fields,field_description:document.field_document__document_type
+#: model:ir.ui.menu,name:document.document_classification_menu
+msgid "文档类型"
+msgstr "Document type"
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_document__item_number
+msgid "文档编号"
+msgstr ""
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_document__description
+msgid "文档说明"
+msgstr ""
+
+#. module: document
+#: model:ir.model,name:document.model_document_attachment_rel
+msgid "文档附件关联表"
+msgstr ""
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_cad__is_standard
+msgid "标准件"
+msgstr ""
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_cad__is_template
+#: model:ir.model.fields,field_description:document.field_document__is_template
+msgid "模板"
+msgstr ""
+
+#. module: document
+#: model:ir.model.fields.selection,name:document.selection__express_dco__priority__0
+msgid "正常"
+msgstr ""
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_cad__source_file
+msgid "源文件"
+msgstr ""
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_cad__parent_id
+msgid "父级工程图"
+msgstr ""
+
+#. module: document
+#: model_terms:ir.ui.view,arch_db:document.cad_form
+msgid "父阶工程图"
+msgstr ""
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_cad__version
+#: model:ir.model.fields,field_description:document.field_document__version
+msgid "版本"
+msgstr ""
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_cad__state
+#: model:ir.model.fields,field_description:document.field_document__state
+#: model:ir.model.fields,field_description:document.field_express_dco__state
+msgid "状态"
+msgstr ""
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_cad_state__code
+#: model:ir.model.fields,field_description:document.field_document_state__code
+#: model:ir.model.fields,field_description:document.field_express_dco_state__code
+msgid "状态代码"
+msgstr ""
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_cad_state__name
+#: model:ir.model.fields,field_description:document.field_document_state__name
+#: model:ir.model.fields,field_description:document.field_express_dco_state__name
+msgid "状态名称"
+msgstr ""
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_cad_state__sequence
+#: model:ir.model.fields,field_description:document.field_document_state__sequence
+#: model:ir.model.fields,field_description:document.field_express_dco_state__sequence
+msgid "状态序号"
+msgstr ""
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_cad_state__description
+#: model:ir.model.fields,field_description:document.field_document_state__description
+#: model:ir.model.fields,field_description:document.field_express_dco_state__description
+msgid "状态描述"
+msgstr ""
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_cad__effective_date
+#: model:ir.model.fields,field_description:document.field_document__effective_date
+msgid "生效日期"
+msgstr ""
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_cad__manager_id
+#: model:ir.model.fields,field_description:document.field_document__manager_id
+#: model:ir.model.fields,field_description:document.field_express_dco__manager_id
+msgid "管理者"
+msgstr ""
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_cad__classification_id
+#: model:ir.model.fields,field_description:document.field_document__classification_id
+#: model:ir.model.fields,field_description:document.field_express_dco__category
+msgid "类别"
+msgstr ""
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_cad_classification__name
+#: model:ir.model.fields,field_description:document.field_document_classification__name
+msgid "类名"
+msgstr ""
+
+#. module: document
+#: model:ir.model.fields.selection,name:document.selection__express_dco__priority__1
+msgid "紧急"
+msgstr ""
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_express_dco__priority
+msgid "紧急程度"
+msgstr ""
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_cad_classification__code
+#: model:ir.model.fields,field_description:document.field_document_classification__code
+msgid "编码"
+msgstr ""
+
+#. module: document
+#: model:ir.actions.act_window,name:document.document_editor_model_action
+#: model:ir.model.fields,field_description:document.field_cad__editor_id
+#: model:ir.model.fields,field_description:document.field_document__editor_id
+#: model:ir.ui.menu,name:document.document_editor_menu
+#: model_terms:ir.ui.view,arch_db:document.document_editor_form
+msgid "编辑工具"
+msgstr "Editing tools."
+
+#. module: document
+#: model_terms:ir.ui.view,arch_db:document.document_editor_list
+msgid "编辑工具列表"
+msgstr ""
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_cad__thumbnail
+#: model:ir.model.fields,field_description:document.field_document__thumbnail
+msgid "缩略图"
+msgstr ""
+
+#. module: document
+#: model:ir.ui.menu,name:document.document_second_level
+msgid "设置"
+msgstr "Setting"
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_cad_classification__description
+#: model:ir.model.fields,field_description:document.field_document_classification__description
+msgid "说明"
+msgstr ""
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_express_dco__owner_id
+msgid "负责人"
+msgstr ""
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_cad_classification__complete_name
+#: model:ir.model.fields,field_description:document.field_document_classification__complete_name
+msgid "路径"
+msgstr ""
+
+#. module: document
+#: model:ir.model,name:document.model_express_dco_cad_rel
+msgid "送审单与工程图关联表"
+msgstr ""
+
+#. module: document
+#: model:ir.model,name:document.model_express_dco_document_rel
+msgid "送审单与文档关联表"
+msgstr ""
+
+#. module: document
+#: model_terms:ir.ui.view,arch_db:document.express_dco_form
+msgid "送审图纸"
+msgstr ""
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_express_dco__cad_ids
+msgid "送审工程图"
+msgstr ""
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_express_dco__document_ids
+#: model_terms:ir.ui.view,arch_db:document.express_dco_form
+msgid "送审文档"
+msgstr ""
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_cad__attachment_ids
+#: model:ir.model.fields,field_description:document.field_cad_attachment_rel__attachment_id
+#: model:ir.model.fields,field_description:document.field_document__attachment_ids
+#: model:ir.model.fields,field_description:document.field_document_attachment_rel__attachment_id
+#: model:ir.model.fields,field_description:document.field_express_dco__attachment_ids
+#: model:ir.model.fields,field_description:document.field_express_dco_attachment_rel__attachment_id
+#: model_terms:ir.ui.view,arch_db:document.cad_form
+#: model_terms:ir.ui.view,arch_db:document.document_form
+#: model_terms:ir.ui.view,arch_db:document.express_dco_form
+msgid "附件"
+msgstr ""
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_document__has_attachment
+msgid "附加附档"
+msgstr ""
+
+#. module: document
+#: model:ir.model.fields.selection,name:document.selection__express_dco__priority__2
+msgid "非常紧急"
+msgstr ""
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_cad__preview_file
+msgid "预览文件"
+msgstr ""

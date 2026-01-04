@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <!-- 微軟系列 -->
+        <record id="document_editor_microsoft_word" model="document.editor">
+            <field name="name">Microsoft Word</field>
+            <field name="version">1</field>
+            <field name="sequence">1</field>
+        </record>
+
+        <record id="document_editor_microsoft_excel" model="document.editor">
+            <field name="name">Microsoft Excel</field>
+            <field name="version">1</field>
+            <field name="sequence">2</field>
+        </record>
+
+        <record id="document_editor_microsoft_powerpoint" model="document.editor">
+            <field name="name">Microsoft Powerpoint</field>
+            <field name="version">1</field>
+            <field name="sequence">3</field>
+        </record>
+
+        <record id="document_editor_microsoft_outlook" model="document.editor">
+            <field name="name">Microsoft Outlook</field>
+            <field name="version">1</field>
+            <field name="sequence">4</field>
+        </record>
+
+        <record id="document_editor_microsoft_access" model="document.editor">
+            <field name="name">Microsoft Access</field>
+            <field name="version">1</field>
+            <field name="sequence">5</field>
+        </record>
+
+        <!-- 基礎工具 -->
+        <record id="document_editor_text_editor" model="document.editor">
+            <field name="name">Text Editor</field>
+            <field name="version">1</field>
+            <field name="sequence">6</field>
+        </record>
+
+        <!-- CAD工具 -->
+        <record id="document_editor_autocad" model="document.editor">
+            <field name="name">AutoCAD</field>
+            <field name="version">1</field>
+            <field name="sequence">7</field>
+        </record>
+
+        <record id="document_editor_solidworks" model="document.editor">
+            <field name="name">SolidWorks</field>
+            <field name="version">1</field>
+            <field name="sequence">8</field>
+        </record>
+
+        <record id="document_editor_inventor" model="document.editor">
+            <field name="name">Inventor</field>
+            <field name="version">1</field>
+            <field name="sequence">9</field>
+        </record>
+
+        <record id="document_editor_solid_edge" model="document.editor">
+            <field name="name">Solid Edge</field>
+            <field name="version">1</field>
+            <field name="sequence">10</field>
+        </record>
+
+        <!-- 高級工程軟件 -->
+        <record id="document_editor_nx" model="document.editor">
+            <field name="name">NX</field>
+            <field name="version">1</field>
+            <field name="sequence">11</field>
+        </record>
+
+        <record id="document_editor_catia" model="document.editor">
+            <field name="name">CATIA</field>
+            <field name="version">1</field>
+            <field name="sequence">12</field>
+        </record>
+
+        <record id="document_editor_pro_engineer" model="document.editor">
+            <field name="name">Pro/ENGINEER</field>
+            <field name="version">1</field>
+            <field name="sequence">13</field>
+        </record>
+
+        <record id="document_editor_creo" model="document.editor">
+            <field name="name">Creo</field>
+            <field name="version">1</field>
+            <field name="sequence">14</field>
+        </record>
+
+        <!-- 電子設計工具 -->
+        <record id="document_editor_altium_designer" model="document.editor">
+            <field name="name">Altium Designer</field>
+            <field name="version">1</field>
+            <field name="sequence">15</field>
+        </record>
+
+        <record id="document_editor_altium_pcad" model="document.editor">
+            <field name="name">Altium P-CAD</field>
+            <field name="version">1</field>
+            <field name="sequence">16</field>
+        </record>
+
+        <record id="document_editor_cadence_allegro" model="document.editor">
+            <field name="name">Cadence Allegro</field>
+            <field name="version">1</field>
+            <field name="sequence">17</field>
+        </record>
+
+        <record id="document_editor_cadence_orcad" model="document.editor">
+            <field name="name">Cadence OrCAD</field>
+            <field name="version">1</field>
+            <field name="sequence">18</field>
+        </record>
+
+        <!-- Mentor系列 -->
+        <record id="document_editor_mentor_board" model="document.editor">
+            <field name="name">Mentor Board Station</field>
+            <field name="version">1</field>
+            <field name="sequence">19</field>
+        </record>
+
+        <record id="document_editor_mentor_xpedition" model="document.editor">
+            <field name="name">Mentor Xpedition</field>
+            <field name="version">1</field>
+            <field name="sequence">20</field>
+        </record>
+
+        <record id="document_editor_mentor_pads" model="document.editor">
+            <field name="name">Mentor PADS</field>
+            <field name="version">1</field>
+            <field name="sequence">21</field>
+        </record>
+
+        <!-- 其他分類 -->
+        <record id="document_editor_other" model="document.editor">
+            <field name="name">Other</field>
+            <field name="version">1</field>
+            <field name="sequence">22</field>
+        </record>
+    </data>
+</odoo>

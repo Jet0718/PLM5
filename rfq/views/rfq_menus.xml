@@ -1,0 +1,23 @@
+<odoo>
+  <data>
+    <menuitem id="rfq_menu_root" name="報價需求" web_icon="rfq,static/description/icon.png">
+      <menuitem id="rfq_first_level" name="RFQ報價">
+        <menuitem id="rfq_property_menu" name="RFQ報價詳情"
+          action="rfq_property_model_action" sequence="10" />
+        <menuitem id="rfq_flow_menu" name="RFQ送審單"
+          action="rfq_flow_model_action" sequence="20" />
+      </menuitem>
+      <menuitem id="rfq_second_level" name="設置">
+        <menuitem id="custom_demand_menu" name="客戶需求"
+          action="custom_demand_model_action" sequence="10" />
+        <menuitem id="quotation_additional_document_menu" name="RFQ附加文件"
+          action="quotation_additional_document_model_action" sequence="20" />
+        <!-- <menuitem id="rfq_property_state_menu" name="RFQ表單狀態"
+          action="rfq_property_state_model_action" sequence="30" />
+        <menuitem id="rfq_flow_state_menu" name="RFQ送審單狀態"
+          action="rfq_flow_state_model_action" sequence="40" /> -->
+      </menuitem>
+    </menuitem>
+
+  </data>
+</odoo>

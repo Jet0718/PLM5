@@ -1,0 +1,112 @@
+<odoo>
+  <record id="document_model_action" model="ir.actions.act_window">
+    <field name="name">文件管理</field>
+    <field name="res_model">document</field>
+    <field name="view_mode">list,form,kanban</field>
+  </record>
+  <!-- 列表視圖：顯示關鍵字段，支持排序和篩選 -->
+  <record id="document_list" model="ir.ui.view">
+    <field name="name">document.list</field>
+    <field name="model">document</field>
+    <field name="arch" type="xml">
+      <list string="文件管理">
+        <field name="item_number" />
+        <field name="classification_id" />
+        <field name="name" />
+        <field name="description" />
+        <field name="state" />
+        <field name="owner_id" />
+      </list>
+    </field>
+  </record>
+  <!-- 表單視圖：結構化布局，支持數據錄入與詳情展示 -->
+  <record id="document_form" model="ir.ui.view">
+    <field name="name">document.form</field>
+    <field name="model">document</field>
+    <field name="arch" type="xml">
+      <form string="文件管理">
+        <header>
+          <field name="state" widget="statusbar"/>
+        </header>
+        <sheet>
+          <div class="oe_button_box" name="button_box">             
+            <button name="express_dco_model_action" string="DCO" class="oe_stat_button" icon="fa-archive" type="object" border="1">
+                <field name="dco_count"  widget="statinfo" string=" DCO" />
+            </button>
+          </div>
+          <group col="3">
+            <group col="3">
+              <field name="item_number" />
+              <field name="name" />
+              <field name="classification_id"  options="{'no_create': True, 'no_open': True}"/>
+              <field name="description" />
+              <field name="in_development" />
+              <field name="is_project" />
+            </group>
+            <group col="3">
+              <field name="state"  options="{'no_create': True, 'no_open': True}" />
+              <field name="version" />
+              <field name="document_type" />
+              <field name="editor_id"  options="{'no_create': True, 'no_open': True}"/>
+              <field name="has_attachment" />
+              <field name="is_template" />
+            </group>
+            <group col="3">
+              <field name="thumbnail" widget="image" options="{'size': [200, 200]}"/> 
+              <field name="owner_id" />
+              <field name="manager_id" />
+              <field name="team_id" />
+              <field name="effective_date" />
+              <field name="release_date" />
+            </group>
+          </group>
+          <notebook>
+            <page string="附件">
+              <group>
+                <field name="attachment_ids" widget="many2many_binary" />
+              </group>
+
+            </page>
+          </notebook>
+        </sheet>
+        <chatter reload_on_post="True"/>
+      </form>
+    </field>
+  </record>
+  <!-- 看板視圖 -->
+  <record id="document_kanban" model="ir.ui.view">
+    <field name="name">document.kanban</field>
+    <field name="model">document</field>
+    <field name="arch" type="xml">
+      <kanban default_group_by="state" string="文件管理" records_draggable="1">
+        <field name="item_number" />
+        <field name="name" />
+        <field name="classification_id" />
+        <field name="state" />
+        <field name="owner_id" />
+        <templates>
+          <t t-name="card">
+            <div class="oe_kanban_global_click"></div>
+            <div class="oe_kanban_box oe_kanban_global_click">
+              <div class="oe_kanban_box_header">
+                <div class="oe_kanban_box_title">
+                  <field name="item_number" />
+                  <field name="name" />
+                </div>
+              </div>
+              <div class="oe_kanban_box_content"></div>
+            </div>
+            <div class="oe_kanban_footer">
+              <div class="oe_kanban_footer_left">
+                <field name="state" widget="statusbar" options="{'clickable': '1'}"/>
+              </div>
+              <div class="oe_kanban_footer_right">
+                <field name="owner_id" />
+              </div>
+            </div>
+          </t>
+        </templates>
+      </kanban>
+    </field>
+  </record>
+</odoo>

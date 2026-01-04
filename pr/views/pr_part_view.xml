@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+        <record id="pr_part_form_view" model="ir.ui.view">
+            <field name="name">part.part.form</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product.product_template_form_view"/>
+            <field name="arch" type="xml">               
+                <!-- 在最上面显示按钮的写法 -->
+                <xpath expr="//button[@name='action_open_documents']" position="after">
+                    <div class="oe_button_box" name="button_box">             
+                        <button name="pr_model_action" string="問題單" class="oe_stat_button" icon="fa-question-circle" type="object" border="1">
+                            <field name="pr_count"  widget="statinfo" string="問題單" />
+                        </button>
+                    </div>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

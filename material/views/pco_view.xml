@@ -1,0 +1,122 @@
+<?xml version="1.0"?>
+<odoo>
+
+    <record id="pco_model_action" model="ir.actions.act_window">
+        <field name="name">變更申請單</field>
+        <field name="res_model">pco</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <record id="pco_view_tree" model="ir.ui.view">
+        <field name="name">pco.list</field>
+        <field name="model">pco</field>
+        <field name="arch" type="xml">
+            <list string="變更申請單">
+                <field name="item_number"  string="編號"/>
+                <field name="title"  string="主旨"/>
+                <field name="description" string="說明"/>
+                <field name="classstr" string="審批類別" widget="many2many_tags"/>
+                <field name="owner_id" string="責任人"/>
+                <field name="contactor_id" string="核決者"/>
+                <field name="tag_ids" string="Tags"/>
+                <field name="state" string="狀態"/>
+                <!-- <field name="affected_product_id" string="審批產品"/>
+                <field name="affected_bom_id" string="審批物料清单"/>              -->
+            </list>
+        </field>
+    </record>
+    <record id="pco_view_form" model="ir.ui.view">
+        <field name="name">pco.form</field>
+        <field name="model">pco</field>
+        <field name="arch" type="xml">
+            <form string="變更申請單">
+                <header>
+                    <!-- <button string="版本变更" name="action_new_revision" type="object"
+                            class="oe_highlight" invisible="state != 'New'"/> -->
+                    <!-- #增加状态按钮                   -->
+                    <!-- <button name="action_set_Review" string="审核中" type="object" invisible="state !='New'"/>
+                    <button name="action_set_Review_after" string="变更后审核" type="object"  invisible="btnflog ==1 or state !='Review'" />
+                    <button name="action_set_Approved" string="核准" type="object" invisible="state !='Review'"/> -->
+                    <button name="action_set_Cancel" string="取消" type="object"/>
+                    <!-- #将状态改成管道状态列 -->
+                    <field name="state" widget="statusbar" statusbar_visible="New,Review,Approved,Cancel"/>
+                </header>
+                <sheet>
+                    <!-- ebert update -->
+                    <div class="oe_button_box" name="button_box">      
+                    </div>   
+                    <group>
+                        <group>
+                            <field name="item_number"  string="編號" readonly="1"/>
+                            <field name="title"  string="主旨"/>
+                            <field name="description" string="說明"/>
+                            <field name="owner_id" string="責任人"/>
+                            <field name="contactor_id" string="核決者"/>
+                            <!-- <field name="bom_invisible" />
+                            <field name="prd_is_invisible" invisible="1"/> -->
+                        </group>
+                        <group>
+                            <!--<field name="flow_class" string="審批類別" widget ="radio"/>-->     <!--下拉变成radio单选模式-->
+                            <field name="classstr" string="審批類別" widget ="many2many_tags" options="{'no_create': True}"/>
+                            <field name="tag_ids" string="Tags" widget="many2many_tags"/> 
+                            <field name="versionflog" invisible="1"/>
+                            <field name="showproduct" invisible="1"/>
+                            <field name="showbom" invisible="1"/> 
+                        </group>
+                    </group>
+                    <notebook> 
+                    <!-- invisible="('Product','not in', classstr)" -->
+                        <page string="送審產品" invisible="showproduct ==1"  >
+                            <group>
+                                <field name="pco_product_id"  readonly="state !='New'" >
+                                    <list editable="bottom"> 
+                                        <field name="affected_product_id"  readonly="0"  options="{'no_open': False}" string="舊產品" class='o_old_group'/>                                        
+                                        <field name="affected_product_version" string="舊版本" class='o_old_group'/> 
+                                        <button name="open_old_related_record" type="object" title="Open" class="btn btn-secondary fa fa-search preview_file"  invisible="parent.state =='New'"/>                                
+                                        <field name="new_affected_product_id" string="新產品" readonly="1" options="{'no_open': False}" class='o_new_group'/>
+                                        <field name="new_affected_product_version" string="新版本" class='o_new_group'/>
+                                        <button name="open_related_record" type="object" title="Open" class="btn btn-secondary fa fa-search preview_file"  invisible="parent.state =='New'"/>                                
+                                    </list>
+                                </field>                                                   
+                            </group>
+                        </page> 
+                        <page string="送審BOM" invisible="showbom ==1" >
+                            <group>
+                                <field name="pco_bom_ids" readonly="state !='New'" >
+                                    <list editable="bottom"> 
+                                        <field name="affected_bom_id" string="舊物料清單"  readonly="0" options="{'no_open': False}" context="{'disable_preview': 1, 'form_view_ref': 'plm.product_template_form_view_plm_custom'}"  class='o_old_group'/>
+                                        <field name="affected_bom_version" string="舊版本" class='o_old_group'/> 
+                                        <button name="open_oldbom_related_record" type="object" title="Open" class="btn btn-secondary fa fa-search preview_file"  invisible="parent.state =='New'"/>
+                                        <field name="new_affected_bom_id" string="新物料清單" readonly="1" options="{'no_open': False}" context="{'disable_preview': 1, 'form_view_ref': 'plm.product_template_form_view_plm_custom'}" class='o_new_group'/>                                        
+                                        <field name="new_affected_bom_version" string="新版本" class='o_new_group'/>
+                                        <button name="open_bom_related_record" type="object" title="Open" class="btn btn-secondary fa fa-search preview_file"  invisible="parent.state =='New' "/>
+                                        
+                                    </list>
+                                </field>                                                   
+                            </group>
+                        </page>  
+                        <page string="附件">                             
+                            <!-- 上传多个档案显示写法 -->
+                            <!-- <field name="binary_fields" readonly="state !='New'" options="{'no_open': False}" context="{'disable_preview': 1, 'form_view_ref': 'project_inherit.view_attachfileprj_form_inherit'}"/> -->
+                            <field name="refe_file" widget="many2many_binary" nolabel="1" colspan="2" context="{'disable_preview': 1, 'form_view_ref': 'project_inherit.view_attachfileprj_form_inherit'}"/>
+                        </page>                                          
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    
+    <record id="pco_view_search" model="ir.ui.view">
+        <field name="name">pco.search</field>
+        <field name="model">pco</field>
+        <field name="arch" type="xml">
+            <search string="變更申請單搜尋">
+                <field name="item_number"  string="編號"/>
+                <field name="title"  string="主旨"/>
+                <separator/>                    
+            </search>
+        </field>
+    </record>
+</odoo>

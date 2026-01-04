@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <!-- 文件狀態 -->
+        <record id="document_state_New" model="document.state">
+            <field name="name">New</field>
+            <field name="description">新建立</field>
+            <field name="sequence" eval="1"/>
+            <field name="folded" eval="False"/>
+        </record>
+        <record id="document_state_In_Review" model="document.state">
+            <field name="name">In Review</field>
+            <field name="description">審核中</field>
+            <field name="sequence" eval="2"/>
+            <field name="folded" eval="False"/>
+        </record>
+        <record id="document_state_Released" model="document.state">
+            <field name="name">Released</field>
+            <field name="description">已發布</field>
+            <field name="sequence" eval="3"/>
+            <field name="folded" eval="True"/>
+        </record>
+        <!-- 工程圖狀態 -->
+        <record id="cad_state_New" model="cad.state">
+            <field name="name">New</field>
+            <field name="description">新建立</field>
+            <field name="sequence" eval="1"/>
+            <field name="folded" eval="False"/>
+        </record>
+        <record id="cad_state_In_Review" model="cad.state">
+            <field name="name">In Review</field>
+            <field name="description">審核中</field>
+            <field name="sequence" eval="2"/>
+            <field name="folded" eval="False"/>
+        </record>
+        <record id="cad_state_Released" model="cad.state">
+            <field name="name">Released</field>
+            <field name="description">已發布</field>
+            <field name="sequence" eval="3"/>
+            <field name="folded" eval="True"/>
+        </record>
+        <!-- 圖文送審單狀態 -->
+        <record id="express_dco_state_New" model="express.dco.state">
+            <field name="name">New</field>
+            <field name="description">新建立</field>
+            <field name="sequence" eval="1"/>
+            <field name="folded" eval="False"/>
+        </record>
+        <record id="express_dco_state_In_Work" model="express.dco.state">
+            <field name="name">In Work</field>
+            <field name="description">編輯中</field>
+            <field name="sequence" eval="2"/>
+            <field name="folded" eval="False"/>
+        </record>
+        <record id="express_dco_state_In_Review" model="express.dco.state">
+            <field name="name">In Review</field>
+            <field name="description">審核中</field>
+            <field name="sequence" eval="3"/>
+            <field name="folded" eval="False"/>
+        </record>
+        <record id="express_dco_state_Released" model="express.dco.state">
+            <field name="name">Released</field>
+            <field name="description">已發布</field>
+            <field name="sequence" eval="4"/>
+            <field name="folded" eval="True"/>
+        </record>
+        <record id="express_dco_state_Cancelled" model="express.dco.state">
+            <field name="name">Cancelled</field>
+            <field name="description">已取消</field>
+            <field name="sequence" eval="5"/>
+            <field name="folded" eval="True"/>
+        </record>
+    </data>
+</odoo>

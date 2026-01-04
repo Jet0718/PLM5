@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- the root elements of the data file -->
+<odoo>
+
+<!--需求管理總目錄--> 
+    <menuitem id="menu_requirement_summary"   name="Requirement Summary"  parent="mrp_plm.menu_mrp_plm_root" sequence="20"/>
+        <menuitem id="requirement_first_level_menu2" name="主目录" parent="menu_requirement_summary" sequence="1"/> 
+            <menuitem id="requirement_model_menu_action2" name="需求"  parent="requirement_first_level_menu2" action="requirement_model_action"/>
+        <menuitem id="requirement_setting_menu2" name="次目录" parent="menu_requirement_summary" sequence="2"/>   
+            <menuitem id="requirement_purpose_setting_action2" name="产品用途" parent="requirement_setting_menu2" action="requirement_purpose_action"/>
+            <menuitem id="requirement_spec_setting_action2" name="规格要求" parent="requirement_setting_menu2" action="requirement_spec_action"/>
+
+<!--需求管理原目錄--> 
+    <menuitem id="requirement_menu_root" name="需求评估"/>
+    <menuitem id="requirement_first_level_menu" name="主目录" parent="requirement_menu_root" sequence="1"/> 
+    <menuitem id="requirement_model_menu_action" name="需求"  parent="requirement_first_level_menu" action="requirement_model_action"/>
+    <menuitem id="requirement_setting_menu" name="次目录" parent="requirement_menu_root" sequence="2"/>   
+    <menuitem id="requirement_purpose_setting_action" name="产品用途" parent="requirement_setting_menu" action="requirement_purpose_action"/>
+    <menuitem id="requirement_spec_setting_action" name="规格要求" parent="requirement_setting_menu" action="requirement_spec_action"/>
+
+
+   
+    
+    <!-- <menuitem id="requirement_menu_root_sec" name="需求评估"   parent="plm.plm_menu" sequence="80"/>
+    <menuitem id="requirement_first_level_menu_sec" name="主目录" parent="requirement.requirement_menu_root_sec" sequence="1"/> 
+    <menuitem id="requirement_model_menu_action_sec" name="需求"  parent="requirement.requirement_first_level_menu_sec" action="requirement.requirement_model_action"/>
+    <menuitem id="requirement_setting_menu_sec" name="次目录" parent="requirement.requirement_menu_root_sec" sequence="2"/>   
+    <menuitem id="requirement_purpose_setting_action_sec" name="产品用途" parent="requirement.requirement_setting_menu_sec" action="requirement.requirement_purpose_action"/>
+    <menuitem id="requirement_spec_setting_action_sec" name="规格要求" parent="requirement.requirement_setting_menu_sec" action="requirement.requirement_spec_action"/> -->
+</odoo>
+ 

@@ -1,0 +1,90 @@
+<odoo>
+  <record id="rfq_flow_model_action" model="ir.actions.act_window">
+    <field name="name">RFQ送審單</field>
+    <field name="res_model">rfq.flow</field>
+    <field name="view_mode">list,form,kanban</field>
+  </record>
+  <!-- 列表視圖：顯示關鍵字段，支持排序和篩選 -->
+  <record id="rfq_flow_list" model="ir.ui.view">
+    <field name="name">rfq.flow.list</field>
+    <field name="model">rfq.flow</field>
+    <field name="arch" type="xml">
+      <list string="RFQ送審單">
+        <field name="item_number" />
+        <field name="submit_remark" />
+        <field name="submit_subject" />
+        <field name="rfq_id" />
+        <field name="pm_id" />
+      </list>
+    </field>
+  </record>
+  <!-- 表單視圖：結構化布局，支持數據錄入與詳情展示 -->
+  <record id="rfq_flow_form" model="ir.ui.view">
+    <field name="name">rfq.flow.form</field>
+    <field name="model">rfq.flow</field>
+    <field name="arch" type="xml">
+      <form string="RFQ送審單">
+        <header>
+          <field name="state" widget="statusbar" class="oe_statusbar_buttons" />
+          <button name="setversionflog" string="審核" type="object" invisible="1" />
+        </header>
+        <sheet>
+          <group>
+            <field name="item_number" />
+            <field name="submit_remark" />
+            <field name="submit_subject" />
+            <field name="rfq_id" options="{'no_create': True, 'no_open': True}" />
+            <field name="pm_id" />
+          </group>
+          <notebook>
+            <page string="送審RFQ">
+              <field name="rfq_property_ids" options="{'no_create': True}" />
+            </page>
+            <page string="評估人員">
+              <field name="assess_id" widget="one2many_list" />
+            </page>
+          </notebook>
+        </sheet>
+        <!-- 底部溝通組件 -->
+        <chatter />
+      </form>
+    </field>
+  </record>
+  <!-- 看板視圖 -->
+  <record id="rfq_flow_kanban" model="ir.ui.view">
+    <field name="name">rfq.flow.kanban</field>
+    <field name="model">rfq.flow</field>
+    <field name="arch" type="xml">
+      <kanban class="o_kanban_mobile">
+        <field name="id" />
+        <field name="item_number" />
+        <field name="submit_remark" />
+        <field name="submit_subject" />
+        <field name="rfq_id" />
+        <field name="pm_id" />
+        <templates>
+          <t t-name="card">
+            <div t-attf-class="oe_kanban_card oe_kanban_global_click">
+              <div class="o_kanban_card_header">
+                <div class="o_kanban_card_header_title">
+                  <field name="item_number" />
+                </div>
+              </div>
+              <div class="o_kanban_card_content">
+                <div class="oe_kanban_footer_left">
+                  <field name="state" widget="statusbar" options="{'clickable': '1'}" />
+                </div>
+                <div class="o_kanban_card_sub_title">
+                  <field name="rfq_id" />
+                </div>
+                <div class="o_kanban_card_sub_title">
+                  <field name="pm_id" />
+                </div>
+              </div>
+            </div>
+          </t>
+        </templates>
+      </kanban>
+    </field>
+  </record>
+</odoo>

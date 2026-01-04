@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- the root elements of the data file -->
+<odoo>
+    <!-- Delete original PLM menus to hide them -->
+    <delete model="ir.ui.menu" id="mrp_plm.menu_mrp_plm_dashboard"/>
+    <delete model="ir.ui.menu" id="mrp_plm.menu_mrp_plm_changes"/>
+    <delete model="ir.ui.menu" id="mrp_plm.menu_mrp_plm_master_data"/>
+    <delete model="ir.ui.menu" id="mrp_plm.menu_mrp_plm_products"/>
+    <delete model="ir.ui.menu" id="mrp_plm.menu_mrp_plm_boms"/>
+    <delete model="ir.ui.menu" id="mrp_plm.menu_mrp_plm_workcenters"/>
+    <delete model="ir.ui.menu" id="mrp_plm.menu_mrp_plm_search"/>
+    <delete model="ir.ui.menu" id="mrp_plm.menu_mrp_plm_reporting"/>
+    <delete model="ir.ui.menu" id="mrp_plm.menu_mrp_plm_eco_report"/>
+    <delete model="ir.ui.menu" id="mrp_plm.menu_mrp_plm_configuration"/>
+    <delete model="ir.ui.menu" id="mrp_plm.menu_mrp_plm_eco_stages"/>
+    <delete model="ir.ui.menu" id="mrp_plm.menu_mrp_plm_eco_types"/>
+    <delete model="ir.ui.menu" id="mrp_plm.menu_mrp_plm_eco_tag"/>
+    <!--PLM生命週期總目錄-->
+    <menuitem id="menu_mrp_plm_summary"   name="PLM Summary"  parent="mrp_plm.menu_mrp_plm_root" sequence="10"/>    
+        <menuitem id="menu_mrp_plm_dashboard" name="Overview" action="mrp_plm.mrp_eco_type_action_dashboard" parent="menu_mrp_plm_summary" sequence="10"/>
+        <menuitem id="menu_mrp_plm_changes" name="Changes" action="mrp_plm.mrp_eco_action_main" parent="menu_mrp_plm_summary" sequence="20"/>
+        <menuitem id="menu_mrp_plm_master_data" name="Master Data" parent="menu_mrp_plm_summary" sequence="30"/>
+            <menuitem id="menu_mrp_plm_products" name="Products" action="product.product_template_action" parent="menu_mrp_plm_master_data" sequence="1"/>
+            <menuitem id="menu_mrp_plm_boms" name="Bill of Materials" action="mrp_plm.mrp_bom_action_kanban" parent="menu_mrp_plm_master_data" sequence="2"/>
+            <menuitem id="menu_mrp_plm_workcenters" name="Work Centers" parent="menu_mrp_plm_master_data" action="mrp.mrp_workcenter_action" sequence="3"/>
+        <!-- <menuitem id="menu_mrp_plm_search" name="Search" parent="menu_mrp_plm_summary" sequence="20"/> -->
+        <menuitem id="menu_mrp_plm_reporting" name="Reporting" parent="menu_mrp_plm_summary"  sequence="40"/>
+            <menuitem id="menu_mrp_plm_eco_report" name="ECOs" action="mrp_plm.mrp_eco_action_report" parent="menu_mrp_plm_reporting" sequence="1"/>
+        <menuitem id="menu_mrp_plm_configuration" name="Configuration" parent="menu_mrp_plm_summary" sequence="50"/>
+            <menuitem id="menu_mrp_plm_eco_stages" name="ECO Stages" action="mrp_plm.mrp_eco_stage_action" parent="menu_mrp_plm_configuration" sequence="1"/>
+            <menuitem id="menu_mrp_plm_eco_types" name="ECO Types" action="mrp_plm.mrp_eco_type_action_form" parent="menu_mrp_plm_configuration" sequence="2"/>
+            <menuitem id="menu_mrp_plm_eco_tag" name="ECO Tags" action="mrp_plm.mrp_eco_tag_action" parent="menu_mrp_plm_configuration" sequence="3"/>
+    
+    
+
+    <!--項目管理總目錄--> 
+    <menuitem id="menu_project_summary"   name="Project Summary"  parent="mrp_plm.menu_mrp_plm_root" sequence="30"/>
+        <menuitem  id="menu_projects" name="Projects"  action="project.open_view_project_all"  parent="menu_project_summary" sequence="1"/>
+        <!-- <menuitem id="menu_projects_group_stage" name="Projects" action="project.open_view_project_all_group_stage"  parent="menu_project_summary" sequence="2"/> -->
+        <menuitem id="menu_project_management" name="Tasks" parent="menu_project_summary" sequence="3"/>
+            <menuitem id="menu_project_management_my_tasks" name="My Tasks" action="project.action_view_my_task" parent="menu_project_management" sequence="1" />
+            <menuitem id="menu_project_management_all_tasks" name="All Tasks" action="project.action_view_all_task" parent="menu_project_management" sequence="2"/>
+        <menuitem id="menu_project_report" name="Reporting" parent="menu_project_summary" sequence="4"/>
+            <menuitem id="menu_project_report_task_analysis" name="Tasks Analysis" parent="menu_project_report" action="project.action_project_task_user_tree" sequence="1"/>
+            <menuitem id="rating_rating_menu_project" name="Customer Ratings" parent="menu_project_report"  action="project.rating_rating_action_project_report" sequence="2"/>
+        <menuitem id="menu_project_config" name="Configuration" parent="menu_project_summary" sequence="5"/>
+            <menuitem id="project_config_settings_menu_action" name="Settings" action="project.project_config_settings_action" parent="menu_project_config" sequence="1"/>
+            <!-- <menuitem id="menu_projects_config_group_stage" name="Projects" action="project.open_view_project_all_config_group_stage" parent="menu_project_config"  sequence="2"/> -->
+            <menuitem id="menu_projects_config" name="Projects" action="project.open_view_project_all_config" parent="menu_project_config"  sequence="3"/>
+            <menuitem id="menu_project_config_project_stage" name="Project Stages" action="project.project_project_stage_configure" parent="menu_project_config"  sequence="4"/>
+            <menuitem id="menu_project_config_project" name="Task Stages" action="project.open_task_type_form" parent="menu_project_config"  sequence="5"/>
+            <menuitem id="menu_project_tags_act" name="Tags" action="project.project_tags_action" parent="menu_project_config"  sequence="6"/>
+            <menuitem id="project_menu_config_project_roles" name="Project Roles" action="project.project_roles_action" parent="menu_project_config"  sequence="7"/>
+            <menuitem id="project_menu_config_activity_type"  name="Activity Types" action="project.mail_activity_type_action_config_project_types" parent="menu_project_config"  sequence="8"/>
+            <menuitem id="mail_activity_plan_menu_config_project" name="Activity Plans" action="project.mail_activity_plan_action_config_project_task_plan" parent="menu_project_config"  sequence="9"/>
+                
+
+
+
+
+
+<!--系統文件管理總目錄-->
+<menuitem id="menu_document_summary"   name="Document Summary"  parent="mrp_plm.menu_mrp_plm_root" sequence="40"/>
+    <menuitem id="documents.dashboard2" name="Documents" parent="menu_document_summary" action="documents.document_action_preference" sequence="0" groups="base.group_user"/>
+    <menuitem id="documents.Config2" name="Configuration" parent="menu_document_summary" sequence="10" groups="documents.group_documents_manager"/>
+        <menuitem id="documents.settings_menu2" name="Settings" parent="documents.Config2" action="documents.configuration_action" sequence="10" groups="base.group_system"/>
+        <menuitem id="documents.structure2" name="Structure" parent="documents.Config2" sequence="40" groups="documents.group_documents_manager"/>
+            <menuitem id="documents.category_menu" name="Tags" parent="documents.structure2" action="documents.tag_action" sequence="10"/>
+        <menuitem id="documents.mail_activities2" name="Activities" parent="documents.Config2" sequence="50" groups="documents.group_documents_manager"/>
+            <menuitem id="documents.mail_activity_type_menu2" name="Activity Types" parent="documents.mail_activities2" action="documents.mail_activity_type_action_document" sequence="10"/>
+            <menuitem id="documents.mail_activity_plan_menu2" name="Activity Plans" parent="documents.mail_activities2" action="documents.mail_activity_plan_action_document" sequence="20"/>
+
+    
+
+    <!--產品管理總目錄-->    
+    <menuitem id="menu_material_summary"   name="Material Summary"  parent="mrp_plm.menu_mrp_plm_root" sequence="150"/>
+        <menuitem id="part_model_menu_action2" name="物料"  parent="menu_material_summary" action="product.product_template_action" sequence="1"/>
+        <menuitem id="part_bom_menu_action2" name="物料清單"  parent="menu_material_summary"  action="mrp.mrp_bom_form_action" sequence="2"/>
+        <menuitem id="class_menu_action2" name="分類內容"  parent="menu_material_summary"  sequence="3"/>
+            <menuitem id="classtemplate_menu_action2" name="物料分類模板"  parent="class_menu_action2"  action="classtemplate_model_action" sequence="1"/>
+            <menuitem id="partclass_menu_action2" name="物料分類內容記錄"  parent="class_menu_action2"  action="partclass_model_action" sequence="2"/>
+            <menuitem id="partlist_menu_action2" name="清單選項"  parent="class_menu_action2"  action="partlist_model_action" sequence="3"/>
+        <menuitem id="partstage_menu_action2" name="階段"  parent="menu_material_summary"  sequence="4"/>
+            <menuitem id="part_stage_menu_action2" name="Part階段"  parent="partstage_menu_action2"  action="part_stage_action" sequence="1"/>
+            <menuitem id="partbom_stage_menu_action2" name="Part Bom 階段"  parent="partstage_menu_action2"  action="partbom_stage_action" sequence="2"/>
+        <menuitem id="pco_model_menu_action2" name="變更申請單"  parent="menu_material_summary"  action="pco_model_action" sequence="5"/>
+        <menuitem id="pco_submit_action2" name="變更申請單-送審物件"  parent="menu_material_summary"  sequence="6"/>  
+            <menuitem id="pco_product_action2" name="送審物件-產品"  parent="pco_submit_action2"  action="pco_product_model_action" sequence="1"/>
+            <menuitem id="pco_bom_action2" name="送審物件-物料清單"  parent="pco_submit_action2"  action="pco_bom_model_action" sequence="2"/>    
+        <menuitem id="pco_setting_action2" name="變更申請單-選項"  parent="menu_material_summary"  sequence="7"/>
+            <menuitem id="pco_type_action2" name="變更申請單-類型"  parent="pco_setting_action2"  action="pco_type_model_action" sequence="1"/>    
+            <menuitem id="pco_tag_action2" name="變更申請單-標籤"  parent="pco_setting_action2"  action="pco_tag_model_action" sequence="2"/>
+   
+
+
+
+
+
+
+
+    <!--產品管理原來的目錄-->
+    <menuitem id="material_menu_root" name="產品管理"/>
+        <menuitem id="part_model_menu_action" name="物料"  parent="material_menu_root" action="product.product_template_action" sequence="1"/>
+        <menuitem id="part_bom_menu_action" name="物料清單"  parent="material_menu_root"  action="mrp.mrp_bom_form_action" sequence="2"/>
+        <menuitem id="class_menu_action" name="分類內容"  parent="material_menu_root"  sequence="3"/>
+            <menuitem id="classtemplate_menu_action" name="物料分類模板"  parent="class_menu_action"  action="classtemplate_model_action" sequence="1"/>
+            <menuitem id="partclass_menu_action" name="物料分類內容記錄"  parent="class_menu_action"  action="partclass_model_action" sequence="2"/>
+            <menuitem id="partlist_menu_action" name="清單選項"  parent="class_menu_action"  action="partlist_model_action" sequence="3"/>
+        <menuitem id="partstage_menu_action" name="階段"  parent="material_menu_root"  sequence="4"/>
+            <menuitem id="part_stage_menu_action" name="Part階段"  parent="partstage_menu_action"  action="part_stage_action" sequence="1"/>
+            <menuitem id="partbom_stage_menu_action" name="Part Bom 階段"  parent="partstage_menu_action"  action="partbom_stage_action" sequence="2"/>
+        <menuitem id="pco_model_menu_action" name="變更申請單"  parent="material_menu_root"  action="pco_model_action" sequence="5"/>
+        <menuitem id="pco_submit_action" name="變更申請單-送審物件"  parent="material_menu_root"  sequence="6"/>  
+            <menuitem id="pco_product_action" name="送審物件-產品"  parent="pco_submit_action"  action="pco_product_model_action" sequence="1"/>
+            <menuitem id="pco_bom_action" name="送審物件-物料清單"  parent="pco_submit_action"  action="pco_bom_model_action" sequence="2"/>    
+        <menuitem id="pco_setting_action" name="變更申請單-選項"  parent="material_menu_root"  sequence="7"/>
+            <menuitem id="pco_type_action" name="變更申請單-類型"  parent="pco_setting_action"  action="pco_type_model_action" sequence="1"/>    
+            <menuitem id="pco_tag_action" name="變更申請單-標籤"  parent="pco_setting_action"  action="pco_tag_model_action" sequence="2"/>
+ </odoo>
+ 
+
+

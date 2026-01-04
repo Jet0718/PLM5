@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- the root elements of the data file -->
+<odoo>
+<!--問題管理總目錄--> 
+    <menuitem id="menu_pr_summary"   name="PR Summary"  parent="mrp_plm.menu_mrp_plm_root" sequence="60"/>
+        <menuitem id="pr_model_menu_action2" name="PR問題單"  parent="menu_pr_summary" action="pr_model_action" sequence="1"/>
+        <menuitem id="errorcode_menu_action2" name="問題編碼"  parent="menu_pr_summary"  action="errorcode_model_action" sequence="2"/>
+        <menuitem id="stage_menu_action2" name="階段"  parent="menu_pr_summary"  sequence="3"/>
+            <menuitem id="pr_stage_menu_action2" name="PR階段"  parent="stage_menu_action2"  action="pr_stage_action" sequence="1"/>
+<!--問題管理原來目錄--> 
+    <menuitem id="pr_menu_root" name="問題管理"/>
+    <menuitem id="pr_model_menu_action" name="PR問題單"  parent="pr_menu_root" action="pr_model_action" sequence="1"/>
+    <menuitem id="errorcode_menu_action" name="問題編碼"  parent="pr_menu_root"  action="errorcode_model_action" sequence="2"/>
+    <menuitem id="stage_menu_action" name="階段"  parent="pr_menu_root"  sequence="3"/>
+    <menuitem id="pr_stage_menu_action" name="PR階段"  parent="stage_menu_action"  action="pr_stage_action" sequence="1"/>
+</odoo>
+ 
+
+

@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_errorcode,access_errorcode,model_errorcode,base.group_user,1,1,1,1
+access_pr_stage,access_pr_stage,model_pr_stage,base.group_user,1,1,1,1
+access_pr,access_pr,model_pr,base.group_user,1,1,1,1
+access_pr_tracking,access_pr_tracking,model_pr_tracking,base.group_user,1,1,1,1

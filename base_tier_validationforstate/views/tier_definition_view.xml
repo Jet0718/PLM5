@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2017-19 ForgeFlow S.L. (https://www.forgeflow.com)
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record id="tier_definition_view_form_inhertstate" model="ir.ui.view">
+        <field name="name">tier.definition.formforstate</field>
+        <field name="model">tier.definition</field>
+        <field name="inherit_id" ref="base_tier_validation.tier_definition_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='reviewer_field_id']" position="after">
+                
+                        <field name="cnuser_defualt" />
+                        <field name="defp_fldname" invisible='cnuser_defualt==0'/>
+                                      
+                        <field name="to_state" />
+                        <field name="defp_shipfdids" invisible='cnuser_defualt==0'/>
+                        <field name="defcd_2relstate" invisible='cnuser_defualt==0'/>
+                        <field name="defcd_orcitmid" invisible='cnuser_defualt==0'/>
+                        <field name="defcd_version_fldname" invisible='cnuser_defualt==0'/>
+                        <field name="reviewer_ids" invisible="review_type != 'multiple_individuals'"/>
+            </xpath>
+            <xpath expr="//div[@name='approve_sequence_bypass_div']" position="after"> 
+                        
+                        <field name="domethod" invisible='cnuser_defualt==1'/>
+                        <!-- <field name="reject_state_parent"/> -->
+                        <field name="reject_method" /> 
+                        <p invisible='cnuser_defualt==1'/> 
+                        <p invisible='cnuser_defualt==1'/> 
+                        <p invisible='cnuser_defualt==1'/> 
+                        <field name="defcd_fldname" invisible='cnuser_defualt==0'/> 
+                         <field name="defcd_fldnameisversion" invisible='cnuser_defualt==0'/>                        
+                        <field name="defcd_newitemid" invisible='cnuser_defualt==0'/>
+                        <field name="defcd_oldstateupda" invisible='cnuser_defualt==0'/>                            
+            </xpath>            
+        </field>
+    </record>
+    <!-- <template id="tier_validation_buttons_inhert">
+        <field name="inherit_id" ref="base_tier_validation.tier_validation_buttons" />
+        <xpath expr="//button[@name='restart_validation']" position="attributes">
+                <attribute name="invisible">not review_ids or hide_reviews or versionflog, '!=', 1 or state == 'Approved'</attribute>
+        </xpath> 
+            
+    </template> -->
+    <!-- <template id="tier_validation_buttons_inhert" inherit_id="base_tier_validation.tier_validation_buttons">
+        <xpath expr="//button[@name='restart_validation']" position="attributes">
+                <attribute name="invisible">not review_ids or hide_reviews or versionflog != 1 or state == 'Approved'</attribute>
+        </xpath>
+    </template> -->
+</odoo>

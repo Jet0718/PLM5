@@ -1,0 +1,11 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_part_stage,access_part_stage,model_part_stage,base.group_user,1,1,1,1
+access_partbom_stage,access_partbom_stage,model_partbom_stage,base.group_user,1,1,1,1
+access_part_list,access_part_list,model_part_list,base.group_user,1,1,1,1
+access_class_template,access_class_template,model_class_template,base.group_user,1,1,1,1
+access_part_class,access_part_class,model_part_class,base.group_user,1,1,1,1
+access_pco,access_pco,model_pco,base.group_user,1,1,1,1
+access_pco_type,access_pco_type,model_pco_type,base.group_user,1,1,1,1
+access_pco_tag,access_pco_tag,model_pco_tag,base.group_user,1,1,1,1
+access_pco_product,access_pco_product,model_pco_product,base.group_user,1,1,1,1
+access_pco_bom,access_pco_bom,model_pco_bom,base.group_user,1,1,1,1

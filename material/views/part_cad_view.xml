@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+        <record id="part_cad_form_view" model="ir.ui.view">
+            <field name="name">part.cad.form</field>
+            <field name="model">cad</field>
+            <field name="inherit_id" ref="document.cad_form"/>
+            <field name="arch" type="xml">               
+                <!-- 在最上面显示按钮的写法 -->
+                <!-- <xpath expr="//sheet" position="inside"> -->
+                <xpath expr="//button[@name='express_dco_model_action']" position="before">
+                    <div class="oe_button_box" name="button_box">             
+                        <button name="product_template_action" string="物料" class="oe_stat_button" icon="fa-cubes" type="object" border="1">
+                            <field name="part_count"  widget="statinfo" string="物料" />
+                        </button>
+                    </div>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>
