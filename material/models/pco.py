@@ -249,62 +249,65 @@ class PCOModel(models.Model):
         #     raise UserError('不可以推到"變更後審核"狀態')  
 
     def action_set_Approved(self):
-        # 檢查是否已取消
-        if self.state == 'Cancel':
-            raise UserError('已取消,不能被核准')
-        
-        # 無論當前狀態如何，都執行核准邏輯
-        # 注意：狀態應該已經在 _execute_tier_actions 方法中被更新為 'Approved'
-        # 但在 odoo.sh 環境中可能由於緩存問題，self.state 可能仍然是舊值
-        # 因此我們不檢查 self.state，直接執行核准邏輯
-        
-        # ebert 发布 Released
-        for record in self.pco_product_id:
-            if record.affected_product_id :
-                if  record.affected_product_id.stage_id.name == 'On Change' :
-                    record.affected_product_id.write({'stage_id':5,'active':False})
-                    record.new_affected_product_id.write({'active':True,'stage_id':3})
-                    # 根據 affected_product_id 的狀態變更落實到 affected_bom_id 上
-                    # 找到與舊版本產品相關的所有 BOM 並更新狀態為 Superseded (5)
-                    boms = self.env['mrp.bom'].search([('product_tmpl_id', '=', record.affected_product_id.id)])
-                    for bom in boms:
-                        # 更新舊版本 BOM 為 Superseded
-                        bom.write({'stage_id': 5})  # Superseded
-                        bom.write({'active': False})
-                    # 同時更新新版本產品相關的 BOM 為 Released (3)
-                    new_boms = self.env['mrp.bom'].search([('product_tmpl_id', '=', record.new_affected_product_id.id)])
-                    for bom in new_boms:
-                        # 只有當 BOM 狀態是 In Review 或 On Change 時才更新為 Released
-                        if bom.stage_id.name in ['In Review', 'On Change']:
-                            bom.write({'active': True})
-                            bom.write({'stage_id': 3})  # Released
+        if self.state =='Approved':
+            # self.write({'state':'Approved'})
+    #          #ebert 发布 Released
+            for record in self.pco_product_id:
+                if record.affected_product_id :
+                    if  record.affected_product_id.stage_id.name == 'On Change' :
+                        record.affected_product_id.write({'stage_id':5,'active':False})
+                        record.new_affected_product_id.write({'active':True,'stage_id':3})
+                        # 根據 affected_product_id 的狀態變更落實到 affected_bom_id 上
+                        # 找到與舊版本產品相關的所有 BOM 並更新狀態為 Superseded (5)
+                        boms = self.env['mrp.bom'].search([('product_tmpl_id', '=', record.affected_product_id.id)])
+                        for bom in boms:
+                            # 更新舊版本 BOM 為 Superseded
+                            bom.write({'stage_id': 5})  # Superseded
+                            bom.write({'active': False})
+                        # 同時更新新版本產品相關的 BOM 為 Released (3)
+                        new_boms = self.env['mrp.bom'].search([('product_tmpl_id', '=', record.new_affected_product_id.id)])
+                        for bom in new_boms:
+                            # 只有當 BOM 狀態是 In Review 或 On Change 時才更新為 Released
+                            if bom.stage_id.name in ['In Review', 'On Change']:
+                                bom.write({'active': True})
+                                bom.write({'stage_id': 3})  # Released
 
-                else :
-                    record.affected_product_id.write({'stage_id':3})
-                    # 根據 affected_product_id 的狀態變更落實到 affected_bom_id 上
-                    # 找到與產品相關的所有 BOM 並更新狀態為 Released (3)
-                    boms = self.env['mrp.bom'].search([('product_tmpl_id', '=', record.affected_product_id.id)])
-                    for bom in boms:
-                        # 只有當 BOM 狀態是 In Review 時才更新為 Released
-                        # 避免從 New 直接跳到 Released
-                        if bom.stage_id.name == 'In Review':
-                            bom.write({'stage_id': 3})  # Released
-        for record in self.pco_bom_ids:
-                if record.affected_bom_id :
-                    #if self.producaffected_product_idtion_id:
-                    # This ECO was generated from a MO. Uses it MO as base for the revision.
-
-                    if record.affected_bom_id.version !=0  or record.affected_bom_id.stage_id.name == 'On Change':
-                        record.affected_bom_id.write({'stage_id':5})
-                        record.affected_bom_id.write({'active':False})
-                        record.new_affected_bom_id.write({'active':True})
-                        # 只有當新 BOM 狀態是 In Review 或 On Change 時才更新為 Released
-                        if record.new_affected_bom_id.stage_id.name in ['In Review', 'On Change']:
-                            record.new_affected_bom_id.write({'stage_id':3})
                     else :
-                        # 只有當新 BOM 狀態是 In Review 時才更新為 Released
-                        if record.new_affected_bom_id.stage_id.name == 'In Review':
-                            record.new_affected_bom_id.write({'stage_id':3})
+                        record.affected_product_id.write({'stage_id':3})
+                        # 根據 affected_product_id 的狀態變更落實到 affected_bom_id 上
+                        # 找到與產品相關的所有 BOM 並更新狀態為 Released (3)
+                        boms = self.env['mrp.bom'].search([('product_tmpl_id', '=', record.affected_product_id.id)])
+                        for bom in boms:
+                            # 只有當 BOM 狀態是 In Review 時才更新為 Released
+                            # 避免從 New 直接跳到 Released
+                            if bom.stage_id.name == 'In Review':
+                                bom.write({'stage_id': 3})  # Released
+            for record in self.pco_bom_ids:
+                    if record.affected_bom_id :
+                        #if self.producaffected_product_idtion_id:
+                        # This ECO was generated from a MO. Uses it MO as base for the revision.
+
+                        if record.affected_bom_id.version !=0  or record.affected_bom_id.stage_id.name == 'On Change':
+                            record.affected_bom_id.write({'stage_id':5})
+                            record.affected_bom_id.write({'active':False})
+                            record.new_affected_bom_id.write({'active':True})
+                            # 只有當新 BOM 狀態是 In Review 或 On Change 時才更新為 Released
+                            if record.new_affected_bom_id.stage_id.name in ['In Review', 'On Change']:
+                                record.new_affected_bom_id.write({'stage_id':3})
+                        else :
+                            # 只有當新 BOM 狀態是 In Review 時才更新為 Released
+                            if record.new_affected_bom_id.stage_id.name == 'In Review':
+                                record.new_affected_bom_id.write({'stage_id':3})
+
+                        
+    #         # ebert end 
+             
+        # elif self.state =='Approved':
+        #     raise UserError('已是"核准"狀態')
+        elif self.state =='Cancel':
+            raise UserError('已取消,不能被核准')
+        else:
+            raise UserError('不可以推到"核准"狀態')
         
     def action_set_Cancel(self):
         for nd in self.pco_product_id:                
