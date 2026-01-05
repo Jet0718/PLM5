@@ -831,8 +831,12 @@ class TierValidationInherit(models.AbstractModel):
                 if to_state and defp_fldname:
                     try:
                         self.write({defp_fldname: to_state, "create_uid": self.create_uid})
+                        # 刷新緩存，確保後續方法能讀取到最新的狀態
+                        self.refresh()
                     except Exception as e:
                         self.write({defp_fldname: int(to_state), "create_uid": self.create_uid})
+                        # 刷新緩存，確保後續方法能讀取到最新的狀態
+                        self.refresh()
                 else:
                     _logger.error(
                         "Error in my_method: %s",
@@ -889,6 +893,8 @@ class TierValidationInherit(models.AbstractModel):
             else:
                 if to_state and update_state:
                     self.write({"state": to_state, "create_uid": self.create_uid})
+                    # 刷新緩存，確保後續方法能讀取到最新的狀態
+                    self.refresh()
                     # 执行modle的方法，若是空值会报错，所有用try
                     self.execmethod(tier_reviews, update_state, domethod)
                 else:
