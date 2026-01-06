@@ -43,8 +43,12 @@
                 </header>
                 <sheet>
                     <!-- ebert update -->
-                    <div class="oe_button_box" name="button_box">      
-                    </div>   
+                    <div class="oe_button_box" name="button_box">
+                        <button name="pr_model_action" string="問題單" class="oe_stat_button" icon="fa-question-circle" type="object" border="1">
+                            <field name="pr_count" widget="statinfo" string="問題單" />
+                        </button>
+                        <button name="action_create_pr" string="新增問題單" class="oe_stat_button" icon="fa-plus" type="object" border="1"/>
+                    </div>
                     <group>
                         <group>
                             <field name="item_number"  string="編號" readonly="1"/>

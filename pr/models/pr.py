@@ -24,12 +24,18 @@ class TestModel(models.Model):
     _tier_validation_manual_config = False
     
     item_number =fields.Char("問題單編號" , default=lambda self: _('New'), copy=False , readonly=True )
-    title =fields.Char("標題",required=True)
+    title =fields.Char("標題")
+    # title =fields.Char("標題",required=True)
     classification =fields.Selection(
         string="問題來源",
         selection=[('廠內','廠內'),('供應商','供應商')],
-        readonly=False,required=True
+        readonly=False
     )
+    # classification =fields.Selection(
+    #     string="問題來源",
+    #     selection=[('廠內','廠內'),('供應商','供應商')],
+    #     readonly=False,required=True
+    # )
     priority =fields.Selection(
         string="優先度",
         selection=[('其他','其他'),('停工','停工'),('重要','重要'),('緊急','緊急')],
@@ -40,8 +46,10 @@ class TestModel(models.Model):
     manager_id = fields.Many2one('res.users', string='權責單位主管')  
     quantity =fields.Integer(string="數量")
     team_id = fields.Many2one('res.groups', string='團隊')
-    reported_by = fields.Many2one('res.users', string='問題回報人' ,required=True)
-    description =fields.Text("問題描述",required=True) 
+    reported_by = fields.Many2one('res.users', string='問題回報人' )
+    # reported_by = fields.Many2one('res.users', string='問題回報人' ,required=True)
+    description =fields.Text("問題描述") 
+    # description =fields.Text("問題描述",required=True) 
     environment =fields.Text("環境說明") 
     events =fields.Text("重現操作順序") 
     phase_caused =fields.Selection(
@@ -58,8 +66,10 @@ class TestModel(models.Model):
         selection=[('1','1'),('2','2'),('3','3')],
         default="1",readonly=True,tracking=1
     )
-    customer_id =fields.Many2one('res.partner',string='受影響客戶',required=True)
-    customer_contact =fields.Many2one('res.partner',string='客戶/供應商 聯絡人',required=True)
+    customer_id =fields.Many2one('res.partner',string='受影響客戶')
+    # customer_id =fields.Many2one('res.partner',string='受影響客戶',required=True)
+    customer_contact =fields.Many2one('res.partner',string='客戶/供應商 聯絡人')
+    # customer_contact =fields.Many2one('res.partner',string='客戶/供應商 聯絡人',required=True)
     response_req =fields.Selection(
         string="回應",
         selection=[('Yes','Yes'),('No','No'),('N/A','N/A')]
@@ -84,6 +94,7 @@ class TestModel(models.Model):
     document_id =fields.Many2many('document',string='關聯文件')
     cad_id =fields.Many2many('cad',string='關聯工程圖')
     part_id =fields.Many2many('product.template',string='關聯物料')
+    pco_id =fields.Many2one('pco',string='關聯變更申請單')
 
 
 

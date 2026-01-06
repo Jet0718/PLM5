@@ -2,7 +2,8 @@
 <odoo>
 
     <record id="pr_model_action" model="ir.actions.act_window">
-        <field name="name">PR問題單</field>
+        <field name="name">PCN</field>
+        <!-- <field name="name">PR問題單</field> -->
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">pr</field>
         <field name="view_mode">list,kanban,form</field>
@@ -12,7 +13,8 @@
         <field name="name">pr.list</field>
         <field name="model">pr</field>
         <field name="arch" type="xml">
-            <list string="PR問題單">
+            <list string="PCN">
+            <!-- <list string="PR問題單"> -->
                 <field name="item_number" string="問題單編號" optional="show" width="100px"/>
                 <field name="title"  string="標題" optional="show"/>
                 <field name="classification"  string="問題來源" optional="show"/>
@@ -56,7 +58,8 @@
         <field name="name">"pr.form</field>
         <field name="model">pr</field>
         <field name="arch" type="xml">
-            <form string="PR問題單">
+            <form string="PCN">
+            <!-- <form string="PR問題單"> -->
                 <header>
                     <!-- #增加狀態按鈕                   -->
                     <button name="action_set_inreview" string="審核" type="object" invisible="1"/>
@@ -95,8 +98,9 @@
                             <field name="category_of_root_cause" string="真因類別"/>  
                             <field name="responsibility_for_root_cause" string="真因權責單位"/>
                             <field name="pr_owner"  string="權責人員"/>
-                            <field name="supplier_id" string="來料供應商"/>   
+                            <field name="supplier_id" string="來料供應商"/>
                             <field name="request_source" string="要求來源"/>
+                            <field name="pco_id" string="關聯變更申請單"/>
                         </group>
                     </group> 
                     <notebook>
@@ -143,7 +147,8 @@
         <field name="name">pr.search</field>
         <field name="model">pr</field>
         <field name="arch" type="xml">
-            <search string="PR 問題單">                                
+            <search string="PCN">  
+            <!-- <search string="PR 問題單">                                 -->
                 <field name="item_number" string="問題單編號" width="100px"/>
                 <field name="title" string="標題"/>
                 <field name="classification" string="問題來源"/>

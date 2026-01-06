@@ -65,6 +65,10 @@ class PCOModel(models.Model):
     showbom=fields.Integer(string="顯示bom",default=1)
     pco_bom_ids =fields.One2many('pco.bom','pco_id_bom',string=' ')
     
+    # 增加關聯問題單 及 數量
+    # pr_ids = fields.One2many('pr','pco_id')
+    pr_count =fields.Integer("數量" ,compute='_compute_pr_count')
+    
     # Seqence 自動領號寫法
     @api.model_create_multi
     def create(self, vals_list):
@@ -410,4 +414,43 @@ class PCOModel(models.Model):
                 self.write({'showproduct':0})
             if r.name=="Bom":
                 self.write({'showbom':0})
+
+    #計算關聯問題單的數量
+    @api.depends()
+    def _compute_pr_count(self):
+        for record in self:
+            try:
+                record.pr_count = self.env['pr'].search_count([('pco_id', '=', record.id)])
+            except Exception as e:
+                record.pr_count = 0
+
+    def pr_model_action(self):
+        return {
+            'type': 'ir.actions.act_window',
+            'name': '問題單',
+            'view_mode': 'list,form',
+            'res_model': 'pr',
+            'domain': [('pco_id', '=', self.id) ],
+            'context': {'default_pco_id': self.id},
+        }
+
+    def action_create_pr(self):
+        """建立一筆新的 PR 記錄，並複製 title 和 description"""
+        self.ensure_one()
+        # 建立新的 PR 記錄
+        pr_vals = {
+            'title': self.title,
+            'description': self.description,
+            'pco_id': self.id,
+        }
+        pr_record = self.env['pr'].create(pr_vals)
+        # 開啟新建立的 PR 表單視圖
+        return {
+            'type': 'ir.actions.act_window',
+            'name': '問題單',
+            'view_mode': 'form',
+            'res_model': 'pr',
+            'res_id': pr_record.id,
+            'target': 'current',
+        }
 
