@@ -42,13 +42,20 @@
                     <field name="state" widget="statusbar" statusbar_visible="New,Review,Approved,Cancel"/>
                 </header>
                 <sheet>
-                    <!-- ebert update -->
+                    <!-- 恩傑使用 -->
                     <div class="oe_button_box" name="button_box">
+                        <button name="pr_model_action" string="PCN" class="oe_stat_button" icon="fa-question-circle" type="object" border="1">
+                            <field name="pr_count" widget="statinfo" string="PCN" />
+                        </button>
+                        <button name="action_create_pr" string="Add PCN" class="oe_stat_button" icon="fa-plus" type="object" border="1"/>
+                    </div>
+                    <!-- 原先的備份 -->
+                    <!-- <div class="oe_button_box" name="button_box">
                         <button name="pr_model_action" string="問題單" class="oe_stat_button" icon="fa-question-circle" type="object" border="1">
                             <field name="pr_count" widget="statinfo" string="問題單" />
                         </button>
                         <button name="action_create_pr" string="新增問題單" class="oe_stat_button" icon="fa-plus" type="object" border="1"/>
-                    </div>
+                    </div> -->
                     <group>
                         <group>
                             <field name="item_number"  string="編號" readonly="1"/>
